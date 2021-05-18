@@ -28,3 +28,9 @@ yarn-error.log*
 /.idea/workspace.xml
 
 
+modules.xml*
+workspace.xml*
+vcs.xml*
+inspectionProfiles/*
+.idea/*
+
