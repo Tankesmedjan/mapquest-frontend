@@ -41,7 +41,7 @@ class GoogleMap extends Component {
                         missiontext={'Climb the spider web as fast as you can! The team with the best average time, to climb the top and back again, wins the mission!'}
                     />
                 </div>
-                <div style={{marginLeft: '-17px', height: '528px', width: '109%'}}>
+                <div style={{marginLeft: '-0px', height: '528px', width: '100%'}}>
                     <GoogleMapReact
                         bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API_KEY}}
                         defaultCenter={this.props.center}
