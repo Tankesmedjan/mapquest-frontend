@@ -34,3 +34,5 @@ vcs.xml*
 inspectionProfiles/*
 .idea/*
 
+/.prettierignore
+/.prettierrc
