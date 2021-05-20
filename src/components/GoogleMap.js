@@ -36,22 +36,25 @@ class GoogleMap extends Component {
             )
     }
 
-    showMissionBox = () => {
+    showMissionBox = (indx) => {
         if (
             document.getElementById("missionboxes") &&
-            document.getElementById("mission-box-1")
+            document.getElementById(`mission-box-${indx+1}`)
         ) {
             document.getElementById("missionboxes").style.display = "block";
-            document.getElementById("mission-box-1").style.display = "block";
+            document.getElementById(`mission-box-${indx+1}`).style.display = "block";
         }
     };
-    hideMissionBox = () => {
+    hideMissionBoxes = () => {
         if (
             document.getElementById("missionboxes") &&
             document.getElementById("mission-box-1")
         ) {
             document.getElementById("missionboxes").style.display = "none";
-            document.getElementById("mission-box-1").style.display = "none";
+            let elems = document.getElementsByClassName('mission-box');
+            for(let i = 0; i < elems.length; i++) {
+                elems[i].style.display = 'none';
+            }
         }
     };
 
@@ -76,13 +79,13 @@ class GoogleMap extends Component {
     render() {
         const {mappointers} = this.state;
         const {lat, lng} = this.state.currentLatLng;
+        const {index} = this.state;
         return (
             <>
                 <div className="themissionbox" id="missionboxes">
                     {mappointers && mappointers.map((pointer, index) => (
-                        <div key={index} className="mission-box" id="mission-box-1" onClick={this.hideMissionBox}>
+                        <div key={index} className="mission-box" id={`mission-box-${index+1}`} onClick={this.hideMissionBoxes}>
                             <MissionBox
-                                key={index}
                                 text={pointer.missionId.missionName}
                                 missiontext={pointer.missionId.missionDescription}
                             />
@@ -92,6 +95,7 @@ class GoogleMap extends Component {
                 </div>
                 <div style={{marginLeft: '-0px', height: '528px', width: '100%'}}>
                     <GoogleMapReact
+                        onChildClick={this.showMissionBox.bind(this)}
                         bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API_KEY}}
                         defaultCenter={this.props.center}
                         defaultZoom={this.props.zoom}
@@ -106,7 +110,6 @@ class GoogleMap extends Component {
                     >
                         {lat >= 47.72740 && lat <= 67.72746 && lng >= 2.0444967 && lng <= 22.0445567 ? (
                             <NextPoint
-                            onClick={this.showMissionBox}
                             lat={57.72743}
                             lng={12.0445267}
                             text={'Spider webb'}
