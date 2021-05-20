@@ -6,7 +6,7 @@ const defaultSettings = {
     maximumAge: 0,
 };
 // if not demo, set watch = false
-export const usePosition = (watch = true, settings = defaultSettings) => {
+export const usePosition = (watch = false, settings = defaultSettings) => {
     const [position, setPosition] = useState({});
     const [error, setError] = useState(null);
 

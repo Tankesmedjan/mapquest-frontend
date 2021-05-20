@@ -1,45 +1,94 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
-import {usePosition} from './usePosition';
+import MapPointers from "../services/MapPointers";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
-const NextPoint = ({ text }) => <div className="pintext"><a href="#" onClick={() => {document.getElementById("mission-box-1").style.display="block"; document.getElementById("missionboxes").style.display="block";}}><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></a></div>
-const MeOnMap = ({ }) => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" /></div>
-const MissonBox = ({ text, missiontext}) => <div className="mission-box" id="mission-box-1" onClick={() => { document.getElementById("missionboxes").style.display="none"; document.getElementById("mission-box-1").style.display="none" }}><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><a href="#" className="start-mission-btn">Start Mission</a></div>
+const NextPoint = ({ text }) => <div><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
+const MeOnMap = () => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" /></div>
+const MissionBox = ({ text, missiontext}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><a href="#!" className="start-mission-btn">Start Mission</a></div>
 
 class GoogleMap extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            latitude: 0.0,
-            longitude: 0.0
+            currentLatLng: {
+                lat: 0,
+                lng: 0
+            },
+            isMarkerShown: false,
+            mappointers: []
         }
     }
 
+    showCurrentLocation = () => {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    this.setState(prevState => ({
+                        currentLatLng: {
+                            ...prevState.currentLatLng,
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        },
+                        isMarkerShown: true
+                    }))
+                }
+            )
+    }
+
+    showMissionBox = () => {
+        if (
+            document.getElementById("missionboxes") &&
+            document.getElementById("mission-box-1")
+        ) {
+            document.getElementById("missionboxes").style.display = "block";
+            document.getElementById("mission-box-1").style.display = "block";
+        }
+    };
+    hideMissionBox = () => {
+        if (
+            document.getElementById("missionboxes") &&
+            document.getElementById("mission-box-1")
+        ) {
+            document.getElementById("missionboxes").style.display = "none";
+            document.getElementById("mission-box-1").style.display = "none";
+        }
+    };
+
+    loadGameMapPointers() {
+        MapPointers.getAllPointersForGame(1)
+            .then(response => {
+                this.setState( {
+                    mappointers: response.data
+                });
+            })
+    }
+
     componentDidUpdate() {
-        navigator.geolocation.getCurrentPosition((position => {
-            this.setState({latitude: position.coords.latitude })
-            this.setState({longitude: position.coords.longitude })
-        }))
+        this.showCurrentLocation()
     }
 
     componentDidMount() {
-        navigator.geolocation.getCurrentPosition((position => {
-            this.setState({latitude: position.coords.latitude })
-            this.setState({longitude: position.coords.longitude })
-        }))
+        this.loadGameMapPointers(1);
+        this.showCurrentLocation()
     }
 
     render() {
-        const {latitude, longitude} = this.state;
+        const {mappointers} = this.state;
+        const {lat, lng} = this.state.currentLatLng;
         return (
             <>
                 <div className="themissionbox" id="missionboxes">
-                    <MissonBox
-                        text={'The Spider Web'}
-                        missiontext={'Climb the spider web as fast as you can! The team with the best average time, to climb the top and back again, wins the mission!'}
-                    />
+                    {mappointers && mappointers.map((pointer, index) => (
+                        <div key={index} className="mission-box" id="mission-box-1" onClick={this.hideMissionBox}>
+                            <MissionBox
+                                key={index}
+                                text={pointer.missionId.missionName}
+                                missiontext={pointer.missionId.missionDescription}
+                            />
+                        </div>
+                    ))};
+
                 </div>
                 <div style={{marginLeft: '-0px', height: '528px', width: '100%'}}>
                     <GoogleMapReact
@@ -55,18 +104,21 @@ class GoogleMap extends Component {
                             styles: [{stylers: [{'saturation': 100}, {'gamma': 0.5}]}]
                         }}
                     >
-                        {latitude >= 57.72740 && latitude <= 57.72746 && longitude >= 12.0444967 && longitude <= 12.0445567 ? (
-                            <NextPoint
-                                lat={57.72743}
-                                lng={12.0445267}
-                                text={'Spider webb'}
-                            />
+                        {lat >= 47.72740 && lat <= 67.72746 && lng >= 2.0444967 && lng <= 22.0445567 ? (
+                            <div className="pintext">
+                                <a onClick={this.showMissionBox}>
+                                    <NextPoint
+                                    lat={57.72743}
+                                    lng={12.0445267}
+                                    text={'Spider webb'}
+                                    />
+                                </a>
+                            </div>
                         ) : (<Point
                             lat={57.72743}
                             lng={12.0445267}
                             text={'Spider webb'}
                         />)}
-
                         <Point
                             lat={57.7274417}
                             lng={12.0441433}
@@ -88,8 +140,8 @@ class GoogleMap extends Component {
                             text={'the Course'}
                         />
                         <MeOnMap
-                            lat={latitude}
-                            lng={longitude}
+                            lat={lat}
+                            lng={lng}
                             text={''}
                         />
                     </GoogleMapReact>
@@ -103,4 +155,4 @@ GoogleMap.defaultProps = {
     center: {lat: 57.7273132, lng: 12.0443108},
     zoom: 18.7
 };
-export default GoogleMap
+export default GoogleMap;
