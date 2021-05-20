@@ -139,6 +139,10 @@ h6 {
   font-size: 0.78405rem;
   line-height: 1.1;
 }
+.nothing {
+  left: 0;
+  top: 100px;
+}
 div .pintext {
   margin-left: -31px;
   margin-top: -13px;

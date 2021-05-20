@@ -4,7 +4,7 @@ import MapPointers from "../services/MapPointers";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
-const NextPoint = ({ text }) => <div><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
+const NextPoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
 const MeOnMap = () => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" /></div>
 const MissionBox = ({ text, missiontext}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><a href="#!" className="start-mission-btn">Start Mission</a></div>
 
@@ -105,15 +105,12 @@ class GoogleMap extends Component {
                         }}
                     >
                         {lat >= 47.72740 && lat <= 67.72746 && lng >= 2.0444967 && lng <= 22.0445567 ? (
-                            <div className="pintext">
-                                <a onClick={this.showMissionBox}>
-                                    <NextPoint
-                                    lat={57.72743}
-                                    lng={12.0445267}
-                                    text={'Spider webb'}
-                                    />
-                                </a>
-                            </div>
+                            <NextPoint
+                            onClick={this.showMissionBox}
+                            lat={57.72743}
+                            lng={12.0445267}
+                            text={'Spider webb'}
+                            />
                         ) : (<Point
                             lat={57.72743}
                             lng={12.0445267}
