@@ -1,24 +1,28 @@
 import React, {Component} from 'react';
-import GoogleMapReact from 'google-map-react';
+import GoogleMap from 'google-map-react';
 import MapPointers from "../services/MapPointers";
+import PropTypes from "prop-types";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
-const NextPoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
+const NextPoint = ({ text }) => <div className="next-point"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
 const MeOnMap = () => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" /></div>
-const MissionBox = ({ text, missiontext}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><a href="#!" className="start-mission-btn">Start Mission</a></div>
+const MissionBox = ({ text, missiontext}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><a href="#!" className="start-mission-btn">Start Mission</a></div>;
 
-class GoogleMap extends Component {
+class GoogleMaps extends Component {
     constructor(props) {
         super(props)
         this.state = {
             currentLatLng: {
-                lat: 0,
-                lng: 0
+                lats: 0,
+                lngs: 0
             },
             isMarkerShown: false,
             mappointers: []
         }
+    }
+    static propTypes = {
+        markers: PropTypes.any
     }
 
     showCurrentLocation = () => {
@@ -27,8 +31,8 @@ class GoogleMap extends Component {
                     this.setState(prevState => ({
                         currentLatLng: {
                             ...prevState.currentLatLng,
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
+                            lats: position.coords.latitude,
+                            lngs: position.coords.longitude
                         },
                         isMarkerShown: true
                     }))
@@ -78,8 +82,7 @@ class GoogleMap extends Component {
 
     render() {
         const {mappointers} = this.state;
-        const {lat, lng} = this.state.currentLatLng;
-        const {index} = this.state;
+        const {lats, lngs} = this.state.currentLatLng;
         return (
             <>
                 <div className="themissionbox" id="missionboxes">
@@ -91,15 +94,13 @@ class GoogleMap extends Component {
                             />
                         </div>
                     ))};
-
                 </div>
                 <div style={{marginLeft: '-0px', height: '528px', width: '100%'}}>
-                    <GoogleMapReact
+                    <GoogleMap
                         onChildClick={this.showMissionBox.bind(this)}
                         bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API_KEY}}
                         defaultCenter={this.props.center}
                         defaultZoom={this.props.zoom}
-                        yesIWantToUseGoogleMapApiInternals
                         options={{
                             scrollwheel: false,
                             zoomControl: false,
@@ -108,17 +109,15 @@ class GoogleMap extends Component {
                             styles: [{stylers: [{'saturation': 100}, {'gamma': 0.5}]}]
                         }}
                     >
-                        {lat >= 47.72740 && lat <= 67.72746 && lng >= 2.0444967 && lng <= 22.0445567 ? (
-                            <NextPoint
-                            lat={57.72743}
-                            lng={12.0445267}
-                            text={'Spider webb'}
-                            />
-                        ) : (<Point
-                            lat={57.72743}
-                            lng={12.0445267}
-                            text={'Spider webb'}
-                        />)}
+                        {mappointers && mappointers.map((mappointers, index) => (
+                                <Point
+                                    key={index}
+                                    lat={mappointers.lat}
+                                    lng={mappointers.lng}
+                                    text={mappointers.missionId.missionName}
+                                />
+
+                            ))}
                         <Point
                             lat={57.7274417}
                             lng={12.0441433}
@@ -140,19 +139,19 @@ class GoogleMap extends Component {
                             text={'the Course'}
                         />
                         <MeOnMap
-                            lat={lat}
-                            lng={lng}
+                            lat={lats}
+                            lng={lngs}
                             text={''}
                         />
-                    </GoogleMapReact>
+                    </GoogleMap>
                 </div>
             </>
         )
     }
 }
 
-GoogleMap.defaultProps = {
+GoogleMaps.defaultProps = {
     center: {lat: 57.7273132, lng: 12.0443108},
     zoom: 18.7
 };
-export default GoogleMap;
+export default GoogleMaps;

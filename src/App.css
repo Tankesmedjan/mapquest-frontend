@@ -165,6 +165,31 @@ div .pintext img{
   padding-top: -30px;
 
 }
+
+div .next-point {
+   margin-left: -31px;
+   margin-top: -13px;
+   width: 90px;
+   text-align: center;
+ }
+
+.next-point span {
+  font-size: 10px;
+  padding-top: -23px;
+  width: 90px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  color: black;
+  background: rgba(255, 255, 255, 0.7)
+}
+
+.next-point img{
+  padding-top: -30px;
+
+}
 .absolute-image {
   position: absolute;
   left: 2px;

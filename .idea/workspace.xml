@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="http-common.js and MapPointers.js added">
+    <list default="true" id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="showing/hiding mission texts works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GoogleMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoogleMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +94,8 @@
       <workItem from="1621368334022" duration="980000" />
       <workItem from="1621407826447" duration="9802000" />
       <workItem from="1621440027508" duration="2646000" />
-      <workItem from="1621523376864" duration="2480000" />
+      <workItem from="1621523376864" duration="3196000" />
+      <workItem from="1621581169007" duration="9112000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit, discarded the gatsby project">
       <created>1621340100738</created>
@@ -141,7 +145,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1621418909156</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="showing/hiding mission texts works">
+      <created>1621531173833</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1621531173836</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +181,8 @@
     <MESSAGE value="restore of sync gone wrong, updates in file system" />
     <MESSAGE value="clean up in files" />
     <MESSAGE value="http-common.js and MapPointers.js added" />
-    <option name="LAST_COMMIT_MESSAGE" value="http-common.js and MapPointers.js added" />
+    <MESSAGE value="showing/hiding mission texts works" />
+    <option name="LAST_COMMIT_MESSAGE" value="showing/hiding mission texts works" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
