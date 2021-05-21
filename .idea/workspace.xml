@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="google map changes">
+    <list default="true" id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="dynamic map pointers working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GoogleMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoogleMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +63,17 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
@@ -93,7 +105,7 @@
       <workItem from="1621440027508" duration="2646000" />
       <workItem from="1621523376864" duration="3196000" />
       <workItem from="1621581169007" duration="9347000" />
-      <workItem from="1621626096389" duration="1811000" />
+      <workItem from="1621626096389" duration="4357000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit, discarded the gatsby project">
       <created>1621340100738</created>
@@ -155,7 +167,13 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1621600971037</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL−00011" summary="dynamic map pointers working">
+      <created>1621627948458</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1621627948458</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +205,8 @@
     <MESSAGE value="http-common.js and MapPointers.js added" />
     <MESSAGE value="showing/hiding mission texts works" />
     <MESSAGE value="google map changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="google map changes" />
+    <MESSAGE value="dynamic map pointers working" />
+    <option name="LAST_COMMIT_MESSAGE" value="dynamic map pointers working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

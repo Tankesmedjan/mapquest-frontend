@@ -209,8 +209,8 @@ div .next-point {
   align-content: center;
   text-align: center;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 100;
   display: none;
+  z-index: 1000;
 }
 .mission-box {
   display: none;
