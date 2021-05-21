@@ -116,7 +116,6 @@ class GoogleMaps extends Component {
                                     lng={mappointers.lng}
                                     text={mappointers.missionId.missionName}
                                 />
-
                             ))}
                         <Point
                             lat={57.7274417}
