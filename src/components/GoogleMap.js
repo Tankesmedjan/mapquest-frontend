@@ -85,7 +85,6 @@ class GoogleMap extends Component {
     render() {
         const {mappointers} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
-        console.log(lats, lngs);
         return (
             <>
                 <div className="themissionbox" id="missionboxes">
