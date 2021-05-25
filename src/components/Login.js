@@ -27,7 +27,7 @@ export class Login extends Component {
                             <input placeholder="Enter your password" type="password" className="form-control"
                                    name="password" onChange={this.handleInputChange}/>
                         </div><br/>
-                        <a href="#!">I Lost My Password</a><br/><br/>
+                        <a href="mailto:tankesmedjan@protonmail.com">I Lost My Password</a><br/><br/>
                         <button type="submit" className="btn flashy-btn">Login</button>
                     </form>
                 </div>
