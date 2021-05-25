@@ -62,6 +62,7 @@ button:hover {
 }
 .container {
   background-color: #282c34;
+  background-image: image();
   margin: auto;
   padding: 25px;
   padding-top: 100px;
@@ -72,6 +73,13 @@ button:hover {
 .container p {
   padding-bottom: 20px;
 }
+
+.container .skyline-image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
 img {
   max-width: 100%;
   margin-left: 0;
