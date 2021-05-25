@@ -73,6 +73,9 @@ button:hover {
 .container p {
   padding-bottom: 20px;
 }
+.form-control {
+  text-align: center;
+}
 
 .container .skyline-image {
   position: absolute;
@@ -360,10 +363,9 @@ div .next-point {
   color: #aaa;
   font-size: 12px;
 }
-.logo-holder a {
-  z-index: 0;
-  text-decoration: none;
-  color: #61dafb;
+a {
+  text-decoration: none!important;
+  color: #61dafb!important;
 }
 
 @keyframes App-logo-spin {

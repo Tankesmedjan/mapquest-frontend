@@ -1,6 +1,7 @@
 import './App.css';
 import GoogleMap from "./components/GoogleMap";
 import LandingPage from "./components/LandingPage";
+import Login from "./components/Login";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/googlemap" component={GoogleMap} />
+            <Route exact path="/login" component={Login} />
         </Switch>
         </BrowserRouter>
 
