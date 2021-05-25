@@ -32,7 +32,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(22px + 2vmin);
   color: white;
   margin-bottom: 0px;
 }
@@ -64,10 +63,11 @@ button:hover {
   background-color: #282c34;
   margin: auto;
   padding: 25px;
-  padding-top: 100px;
+  padding-top: 50px;
   font-family: 'Roboto', sans-serif;
   width: 100%;
   min-height: 750px;
+  max-height: 750px;
   z-index: 2;
 }
 .container p {
@@ -76,21 +76,22 @@ button:hover {
 .form-control {
   text-align: center;
 }
-
-.container .skyline-image {
+.wrapper-main {
+  height:530px;
+  font-size:13px;
+  color: #ccc;
+}
+.wrapper-footer {
+  vert-align: bottom;
+  bottom: 0;
+}
+.container .wrapper-footer .skyline-image {
   position: absolute;
   left: 0;
   bottom: -20px;
-  z-index: 0;
   opacity: 0.4;
 }
-.bg-container {
-  width: 100%;
-  min-height: 750px;
-  opacity: 0.4;
-  z-index: 0;
-  background-color: #282c34;
-}
+
 img {
   max-width: 100%;
   margin-left: 0;
@@ -129,7 +130,7 @@ h2 {
   color: inherit;
   font-family: 'Permanent Marker', cursive;
   text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
+  font-size: 16px;
   line-height: 1.1;
 }
 h3 {
@@ -353,15 +354,14 @@ div .next-point {
 }
 
 .logo-img {
-  z-index: 0;
+  bottom: 0;
   -webkit-animation: spin 3s infinite;
   animation: spin 3s infinite;
 }
 .logo-holder {
-  z-index: 0;
-  padding-top: 130px;
   color: #aaa;
   font-size: 12px;
+  z-index: 10000;
 }
 a {
   text-decoration: none!important;
