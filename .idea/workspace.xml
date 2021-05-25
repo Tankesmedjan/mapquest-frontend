@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74ec0469-c818-4670-a7c4-909b403ddc30" name="Default Changelist" comment="Icons in LandingPage buttons">
+    <list default="true" id="74ec0469-c818-4670-a7c4-909b403ddc30" name="Default Changelist" comment="css corrections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LandingPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1621936179236</updated>
-      <workItem from="1621936180675" duration="1293000" />
+      <workItem from="1621936180675" duration="3169000" />
     </task>
     <task id="LOCAL−00001" summary="Icons in LandingPage buttons">
       <created>1621940331911</created>
@@ -77,7 +78,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1621940331911</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="css corrections">
+      <created>1621940601412</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1621940601412</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,6 +104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Icons in LandingPage buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Icons in LandingPage buttons" />
+    <MESSAGE value="css corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="css corrections" />
   </component>
 </project>
