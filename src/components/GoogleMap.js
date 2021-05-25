@@ -86,6 +86,7 @@ class GoogleMap extends Component {
         let quest;
         return (
             <>
+                <h1 className="maps-header">MapQuest</h1>
                 <div className="themissionbox" id="missionboxes">
                     {mappointers && mappointers.map((pointer, index) => (
                         pointer.missionId.missionQAs ? (quest = pointer.missionId.missionQAs.question) : ( quest = " " ),

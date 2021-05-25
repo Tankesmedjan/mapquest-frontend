@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import * as Icon from "react-bootstrap-icons";
+import {Link} from "react-router-dom";
 
 export class LandingPage extends Component {
     render() {
@@ -9,7 +10,7 @@ export class LandingPage extends Component {
                     <p><button className="btn flashy-btn"><Icon.CurrencyDollar /> Purchase Access</button></p>
                     <p><button className="btn flashy-btn"><Icon.DoorOpen /> Login</button></p>
                     <p><button className="btn flashy-btn"><Icon.Upc /> Scan QR</button></p>
-                    <p><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></p>
+                    <p><Link to="/googlemap"><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></Link></p>
 
                     <div className="logo-holder">
                         <img className="logo-img" src="/images/mapquest-logo.png" alt="logo" width="200"/><br/>
