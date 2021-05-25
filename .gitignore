@@ -5,6 +5,7 @@
 /.pnp
 /.idea/*
 .pnp.js
+/.idea/workspace.xml
 
 # testing
 /coverage
@@ -25,7 +26,6 @@ yarn-error.log*
 /.env
 /.idea/modules.xml
 /.idea/vcs.xml
-/.idea/workspace.xml
 
 
 modules.xml*
@@ -37,3 +37,4 @@ inspectionProfiles/*
 /.prettierignore
 /.prettierrc
 /.cache/
+/.mycert/

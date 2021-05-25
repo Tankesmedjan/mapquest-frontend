@@ -8,7 +8,6 @@ function App() {
       <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
       <h1 className="maps-header">MapQuest</h1>
       <LandingPage />
-        <h1>MapQuest</h1>
       <GoogleMap />
     </div>
   );

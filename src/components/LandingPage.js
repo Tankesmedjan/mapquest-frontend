@@ -6,10 +6,10 @@ export class LandingPage extends Component {
     render() {
         return (
                 <div className="container">
-                    <p><button className="btn btn-light">Purchase Access</button></p>
-                    <p><button className="btn btn-light">Login</button></p>
-                    <p><button className="btn btn-light">Scan QR</button></p>
-                    <p><button className="btn btn-light">Quick access</button></p>
+                    <p><button className="btn btn-light"><Icon.CurrencyEuro /> Purchase Access</button></p>
+                    <p><button className="btn btn-light"><Icon.DoorOpen /> Login</button></p>
+                    <p><button className="btn btn-light"><Icon.Upc /> Scan QR</button></p>
+                    <p><button className="btn btn-light"><Icon.BoxArrowInRight /> Quick access</button></p>
                 </div>
         )
     }

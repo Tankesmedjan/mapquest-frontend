@@ -1,85 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="flip image for MeOnMap">
+    <list default="true" id="74ec0469-c818-4670-a7c4-909b403ddc30" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GoogleMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoogleMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LandingPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
+  <component name="ProjectId" id="1t1Udnpi5Z1ylqqhV2yNdPVsLb4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
   </component>
-  <component name="ProjectId" id="1sht3seFGfzkJwOaPdL8F53nv4u" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/public" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/.idea" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.npm start">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
-      <method v="2" />
-    </configuration>
-    <configuration name="npm start" type="js.build_tools.npm">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -93,126 +66,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="" />
-      <created>1621336452588</created>
+      <changelist id="74ec0469-c818-4670-a7c4-909b403ddc30" name="Default Changelist" comment="" />
+      <created>1621936179236</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1621336452588</updated>
-      <workItem from="1621336453791" duration="3322000" />
-      <workItem from="1621339885384" duration="574000" />
-      <workItem from="1621340474084" duration="4937000" />
-      <workItem from="1621366661569" duration="306000" />
-      <workItem from="1621368334022" duration="980000" />
-      <workItem from="1621407826447" duration="9802000" />
-      <workItem from="1621440027508" duration="2646000" />
-      <workItem from="1621523376864" duration="3196000" />
-      <workItem from="1621581169007" duration="9347000" />
-      <workItem from="1621626096389" duration="4447000" />
-      <workItem from="1621662210076" duration="4190000" />
-      <workItem from="1621785722686" duration="3160000" />
-      <workItem from="1621877621905" duration="1185000" />
-      <workItem from="1621925429260" duration="6651000" />
+      <updated>1621936179236</updated>
+      <workItem from="1621936180675" duration="917000" />
     </task>
-    <task id="LOCAL−00001" summary="initial commit, discarded the gatsby project">
-      <created>1621340100738</created>
-      <option name="number" value="LOCAL−00001" />
-      <option name="presentableId" value="LOCAL−00001" />
-      <updated>1621340100738</updated>
-    </task>
-    <task id="LOCAL−00002" summary="initial commit, discarded the gatsby project">
-      <created>1621340576159</created>
-      <option name="number" value="LOCAL−00002" />
-      <option name="presentableId" value="LOCAL−00002" />
-      <updated>1621340576159</updated>
-    </task>
-    <task id="LOCAL−00003" summary="gitignore">
-      <created>1621340876100</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1621340876100</updated>
-    </task>
-    <task id="LOCAL−00004" summary="readme updated">
-      <created>1621348848617</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1621348848617</updated>
-    </task>
-    <task id="LOCAL−00005" summary="restore of sync gone wrong, updates in file system">
-      <created>1621408218567</created>
-      <option name="number" value="LOCAL−00005" />
-      <option name="presentableId" value="LOCAL−00005" />
-      <updated>1621408218567</updated>
-    </task>
-    <task id="LOCAL−00006" summary="clean up in files">
-      <created>1621408468008</created>
-      <option name="number" value="LOCAL−00006" />
-      <option name="presentableId" value="LOCAL−00006" />
-      <updated>1621408468008</updated>
-    </task>
-    <task id="LOCAL−00007" summary="clean up in files">
-      <created>1621416926356</created>
-      <option name="number" value="LOCAL−00007" />
-      <option name="presentableId" value="LOCAL−00007" />
-      <updated>1621416926356</updated>
-    </task>
-    <task id="LOCAL−00008" summary="http-common.js and MapPointers.js added">
-      <created>1621418909156</created>
-      <option name="number" value="LOCAL−00008" />
-      <option name="presentableId" value="LOCAL−00008" />
-      <updated>1621418909156</updated>
-    </task>
-    <task id="LOCAL−00009" summary="showing/hiding mission texts works">
-      <created>1621531173833</created>
-      <option name="number" value="LOCAL−00009" />
-      <option name="presentableId" value="LOCAL−00009" />
-      <updated>1621531173836</updated>
-    </task>
-    <task id="LOCAL−00010" summary="google map changes">
-      <created>1621600971037</created>
-      <option name="number" value="LOCAL−00010" />
-      <option name="presentableId" value="LOCAL−00010" />
-      <updated>1621600971037</updated>
-    </task>
-    <task id="LOCAL−00011" summary="dynamic map pointers working">
-      <created>1621627948458</created>
-      <option name="number" value="LOCAL−00011" />
-      <option name="presentableId" value="LOCAL−00011" />
-      <updated>1621627948458</updated>
-    </task>
-    <task id="LOCAL−00012" summary="dynamic mission text working">
-      <created>1621630591685</created>
-      <option name="number" value="LOCAL−00012" />
-      <option name="presentableId" value="LOCAL−00012" />
-      <updated>1621630591685</updated>
-    </task>
-    <task id="LOCAL−00013" summary="dynamic positions and change of Pin when near">
-      <created>1621664499017</created>
-      <option name="number" value="LOCAL−00013" />
-      <option name="presentableId" value="LOCAL−00013" />
-      <updated>1621664499018</updated>
-    </task>
-    <task id="LOCAL−00014" summary="log removed">
-      <created>1621668423721</created>
-      <option name="number" value="LOCAL−00014" />
-      <option name="presentableId" value="LOCAL−00014" />
-      <updated>1621668423721</updated>
-    </task>
-    <task id="LOCAL−00015" summary="flip image for MeOnMap">
-      <created>1621929240488</created>
-      <option name="number" value="LOCAL−00015" />
-      <option name="presentableId" value="LOCAL−00015" />
-      <updated>1621929240488</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.prettierignore" />
-    <option featureType="com.intellij.fileTypeFactory" implementationName=".prettierrc" />
-    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -225,25 +89,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit, discarded the gatsby project" />
-    <MESSAGE value="gitignore" />
-    <MESSAGE value="readme updated" />
-    <MESSAGE value="restore of sync gone wrong, updates in file system" />
-    <MESSAGE value="clean up in files" />
-    <MESSAGE value="http-common.js and MapPointers.js added" />
-    <MESSAGE value="showing/hiding mission texts works" />
-    <MESSAGE value="google map changes" />
-    <MESSAGE value="dynamic map pointers working" />
-    <MESSAGE value="dynamic mission text working" />
-    <MESSAGE value="dynamic positions and change of Pin when near" />
-    <MESSAGE value="log removed" />
-    <MESSAGE value="flip image for MeOnMap" />
-    <option name="LAST_COMMIT_MESSAGE" value="flip image for MeOnMap" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
