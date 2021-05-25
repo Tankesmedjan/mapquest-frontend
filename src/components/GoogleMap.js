@@ -5,9 +5,8 @@ import PropTypes from "prop-types";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
-const PointNew = () => <div><img src="pointer.gif" alt="pointer" width="30" /></div>
 const NextPoint = ({ text }) => <div className="next-point"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
-const MeOnMap = () => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" /></div>
+const MeOnMap = ({direction}) => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" className={direction}/></div>
 const MissionBox = ({ text, missiontext, question}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/>{question}<br/><br/><a href="#!" className="start-mission-btn">Start Mission</a></div>;
 
 class GoogleMap extends Component {
@@ -136,6 +135,7 @@ class GoogleMap extends Component {
                             lat={lats}
                             lng={lngs}
                             text={''}
+                            direction={'flipimage'}
                         />
                     </GoogleMapReact>
                 </div>

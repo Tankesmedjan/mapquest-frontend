@@ -173,6 +173,11 @@ div .next-point {
    text-align: center;
  }
 
+.flipimage {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
 .next-point span {
   font-size: 10px;
   padding-top: -23px;
