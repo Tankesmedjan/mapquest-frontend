@@ -10,6 +10,10 @@ export class LandingPage extends Component {
                     <p><button className="btn flashy-btn"><Icon.DoorOpen /> Login</button></p>
                     <p><button className="btn flashy-btn"><Icon.Upc /> Scan QR</button></p>
                     <p><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></p>
+
+                    <div className="logo-img">
+                        <img src="/images/mapquest-logo.png" alt={"logo"}/>
+                    </div>
                 </div>
         )
     }
