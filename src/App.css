@@ -64,6 +64,7 @@ button:hover {
   background-color: #282c34;
   margin: auto;
   padding: 25px;
+  padding-top: 100px;
   font-family: 'Roboto', sans-serif;
   width: 100%;
   min-height: 800px;
