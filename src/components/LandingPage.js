@@ -11,8 +11,9 @@ export class LandingPage extends Component {
                     <p><button className="btn flashy-btn"><Icon.Upc /> Scan QR</button></p>
                     <p><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></p>
 
-                    <div>
-                        <img className="logo-img" src="/images/mapquest-logo.png" alt="logo" width="200"/>
+                    <div className="logo-holder">
+                        <img className="logo-img" src="/images/mapquest-logo.png" alt="logo" width="200"/><br/>
+                       &reg;&copy; 2021 - Tankesmedjan. <a href="mailto:tankesmedjan@protonmail.com">Mail us</a>
                     </div>
                 </div>
         )

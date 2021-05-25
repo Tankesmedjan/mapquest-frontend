@@ -55,7 +55,7 @@ button {
   font-family: 'Permanent Marker', cursive!important;
   font-size: 18px!important;
   padding: 10px!important;
-  color: black!important;
+  color: white!important;
 }
 button:hover {
 
@@ -335,6 +335,15 @@ div .next-point {
 .logo-img {
   -webkit-animation: spin 3s infinite;
   animation: spin 3s infinite;
+}
+.logo-holder {
+  padding-top: 130px;
+  color: #aaa;
+  font-size: 12px;
+}
+.logo-holder a {
+  text-decoration: none;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
