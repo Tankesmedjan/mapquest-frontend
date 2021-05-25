@@ -12,7 +12,7 @@ export class LandingPage extends Component {
                     <p><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></p>
 
                     <div className="logo-img">
-                        <img src="/images/mapquest-logo.png" alt={"logo"}/>
+                        <img src="/images/mapquest-logo.png" alt="logo" width="200"/>
                     </div>
                 </div>
         )
