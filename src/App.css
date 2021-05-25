@@ -38,6 +38,28 @@ body {
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
+button {
+  min-width: 200px;
+  font-family: 'Permanent Marker', cursive!important;
+  font-size: 18px!important;
+  padding: 10px!important;
+  border-radius: 10px!important;
+}
+button:hover {
+  color: #61dafb!important;
+  border: 1px #61dafb dotted!important;
+}
+.container {
+  background-color: #282c34;
+  margin: auto;
+  padding: 25px;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 100%;
+}
+.container p {
+  padding-bottom: 20px;
+}
 img {
   max-width: 100%;
   margin-left: 0;
@@ -259,6 +281,7 @@ div .next-point {
   position:relative;
   top:1px;
 }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

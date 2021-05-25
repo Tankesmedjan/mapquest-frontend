@@ -7,18 +7,22 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "bootstrap": "^5.0.1",
     "google-map-react": "^2.1.9",
     "mime": "^1.6.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.0",
     "react-controllables": "^0.6.0",
     "react-dom": "^17.0.2",
     "react-geolocated": "^3.2.0",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "react-bootstrap-icons": "^1.5.0"
   },
   "scripts": {
-    "start": "HTTPS=true SSL_CRT_FILE=./.cert/localhost.crt SSL_KEY_FILE=./.cert/localhost.key react-scripts start",
+    "start": "HTTPS=true SSL_CRT_FILE=./.mycert/localhost.crt SSL_KEY_FILE=./.mycert/localhost.key react-scripts start",
+    "startwin": "react-scripts start HOST=localhost set HTTPS=true SSL_CRT_FILE=./.mycert/localhost.crt SSL_KEY_FILE=./.mycert/localhost.key",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
