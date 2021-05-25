@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="log removed">
+    <list default="true" id="9a758591-8f48-464d-bef0-98567d261f46" name="Default Changelist" comment="flip image for MeOnMap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GoogleMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoogleMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +35,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -109,7 +111,7 @@
       <workItem from="1621662210076" duration="4190000" />
       <workItem from="1621785722686" duration="3160000" />
       <workItem from="1621877621905" duration="1185000" />
-      <workItem from="1621925429260" duration="3747000" />
+      <workItem from="1621925429260" duration="6651000" />
     </task>
     <task id="LOCAL−00001" summary="initial commit, discarded the gatsby project">
       <created>1621340100738</created>
@@ -195,7 +197,13 @@
       <option name="presentableId" value="LOCAL−00014" />
       <updated>1621668423721</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL−00015" summary="flip image for MeOnMap">
+      <created>1621929240488</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1621929240488</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +239,8 @@
     <MESSAGE value="dynamic mission text working" />
     <MESSAGE value="dynamic positions and change of Pin when near" />
     <MESSAGE value="log removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="log removed" />
+    <MESSAGE value="flip image for MeOnMap" />
+    <option name="LAST_COMMIT_MESSAGE" value="flip image for MeOnMap" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

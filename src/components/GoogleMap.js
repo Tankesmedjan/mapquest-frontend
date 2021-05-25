@@ -41,7 +41,6 @@ class GoogleMap extends Component {
     }
 
     showMissionBox = (indx) => {
-        console.log(indx)
         if (
             document.getElementById("missionboxes") &&
             document.getElementById(`mission-box-${indx}`)
@@ -99,7 +98,7 @@ class GoogleMap extends Component {
                             </div>
                     ))}
                 </div>
-                <div style={{marginLeft: '-0px', height: '528px', width: '100%'}}>
+                <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
                     <GoogleMapReact
                         onChildClick={this.showMissionBox.bind(this)}
                         bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API_KEY}}
@@ -111,7 +110,7 @@ class GoogleMap extends Component {
                             zoomControl: false,
                             fullscreenControl: false,
                             gestureHandling: 'none',
-                            styles: [{stylers: [{'saturation': 100}, {'gamma': 0.5}]}]
+                            styles: [{stylers: [{'saturation': 80}, {'gamma': 0.8}]}]
                         }}
                     >
                         {mappointers && mappointers.map((mappointers, index) => (

@@ -24,6 +24,18 @@
   color: white;
 }
 
+.maps-header {
+  background-color: #282c34;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(22px + 2vmin);
+  color: white;
+  margin-bottom: 0px;
+}
+
 .App-link {
   color: #61dafb;
 }
