@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapPointers from "../services/MapPointers";
+import TeamAndPlayers from "../services/TeamAndPlayers";
 import PropTypes from "prop-types";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
@@ -17,8 +18,8 @@ class GoogleMap extends Component {
                 lats: 0,
                 lngs: 0
             },
-            isMarkerShown: false,
-            mappointers: []
+            mapPointers: [],
+            teamAndPlayers: {}
         }
     }
     static propTypes = {
@@ -33,8 +34,7 @@ class GoogleMap extends Component {
                             ...prevState.currentLatLng,
                             lats: position.coords.latitude,
                             lngs: position.coords.longitude
-                        },
-                        isMarkerShown: true
+                        }
                     }))
                 }
             )
@@ -62,11 +62,20 @@ class GoogleMap extends Component {
         }
     };
 
-    loadGameMapPointers() {
-        MapPointers.getAllPointersForGame(1)
+    loadGameMapPointers(gameId) {
+        MapPointers.getAllPointersForGame(gameId)
             .then(response => {
                 this.setState( {
-                    mappointers: response.data
+                    mapPointers: response.data
+                });
+            })
+    }
+
+    loadTeamAndPlayers(teamId) {
+        TeamAndPlayers.getAllPlayersForTeam(teamId)
+            .then(response => {
+                this.setState( {
+                    teamAndPlayers: response.data
                 });
             })
     }
@@ -76,19 +85,26 @@ class GoogleMap extends Component {
     }
 
     componentDidMount() {
-        this.loadGameMapPointers(1);
+        // -- Hard coded values to be replaced with dynamic from AP --
+            let fakeGameId = 1;
+            let fakeTeamId = 8;
+        // -- End --
+
+        this.loadGameMapPointers(fakeGameId)
+        this.loadTeamAndPlayers(fakeTeamId)
         this.showCurrentLocation()
+        console.log(this.state.teamAndPlayers)
     }
 
     render() {
-        const {mappointers} = this.state;
+        const {mapPointers} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
         let quest;
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
                 <div className="themissionbox" id="missionboxes">
-                    {mappointers && mappointers.map((pointer, index) => (
+                    {mapPointers && mapPointers.map((pointer, index) => (
                         pointer.missionId.missionQAs ? (quest = pointer.missionId.missionQAs.question) : ( quest = " " ),
                             <div key={index} className="mission-box" id={`mission-box-${index}`} onClick={this.hideMissionBoxes}>
                                 <MissionBox
@@ -114,7 +130,7 @@ class GoogleMap extends Component {
                             styles: [{stylers: [{'saturation': 80}, {'gamma': 0.8}]}]
                         }}
                     >
-                        {mappointers && mappointers.map((mappointers, index) => (
+                        {mapPointers && mapPointers.map((mappointers, index) => (
                             lats <= (mappointers.lat + 0.00003) && lats >= (mappointers.lat -0.00003) && lngs <= (mappointers.lng + 0.00003) && lngs >= (mappointers.lng - 0.00003) ? (
                                 <NextPoint
                                     key={index}
