@@ -1,15 +1,23 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
+import {login} from "../repositories/LoginAuth";
+
 
 
 export class Login extends Component {
     constructor() {
         super();
-        this.state = { username: '', password: '' };
+        this.state = { email: '', password: '' };
     }
 
     handleInputChange = (event) =>
         this.setState({[event.target.name]: event.target.value})
+
+    submitLogin = (event) => {
+        event.preventDefault();
+        login(this.state)
+        console.log(this.state)
+    }
 
     render() {
         return (
@@ -19,8 +27,8 @@ export class Login extends Component {
                     <h3 className="maps-header">Login</h3>
                     <form onSubmit={this.submitLogin}>
                         <div className="form-group">
-                            <input type="text" placeholder="Enter your username" className="form-control"
-                                   name="username" onChange={this.handleInputChange}/>
+                            <input type="text" placeholder="Enter your email" className="form-control"
+                                   name="email" onChange={this.handleInputChange}/>
                         </div><br/>
                         <div className="form-group">
                             <input placeholder="Enter your password" type="password" className="form-control"
