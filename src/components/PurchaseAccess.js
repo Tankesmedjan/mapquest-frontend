@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
+import http from "../http-common";
+import sha256 from "sha256";
 
 
 export class PurchaseAccess extends Component {
@@ -12,6 +14,15 @@ export class PurchaseAccess extends Component {
     handleInputChange = (event) =>
         this.setState({[event.target.name]: event.target.value})
 
+    registerUser(e) {
+        e.preventDefault()
+        let data = {name: this.state.name, email: this.state.email, password: sha256(this.state.password)}
+        http.post(`/user`, data)
+        alert("Successfully registered!")
+        this.setState({successMessage: "Registered!"})
+        console.log(this.state.password)
+    }
+
     render() {
         return (
             <div className="container">
@@ -22,7 +33,7 @@ export class PurchaseAccess extends Component {
                         Build your own story with missions from our library or chose from many ready-to-go stories. </b><br/>
                     <small><i>Only $24.99 for 24h access to the created game.</i></small><br/><br/>
 
-                    <form onSubmit={this.submitLogin}>
+                    <form onSubmit={(e) => this.registerUser(e)}>
                         <div className="form-group">
                             <input type="text" placeholder="Enter your name" className="form-control"
                                    name="name" onChange={this.handleInputChange}/>
@@ -38,7 +49,7 @@ export class PurchaseAccess extends Component {
                                    name="password" onChange={this.handleInputChange}/>
                         </div><br/>
                         <p>
-                            <button type="submit" className="btn flashy-btn"><Icon.CurrencyDollar/> Get Access Code</button>
+                            <button type="submit" className="btn flashy-btn"><Icon.CurrencyDollar/>Register</button>
                         </p>
                     </form>
                 </div>
