@@ -88,8 +88,8 @@ button:hover {
 .container .wrapper-footer .skyline-image {
   position: absolute;
   left: 0;
-  bottom: -20px;
-  opacity: 0.4;
+  top: 580px;
+  opacity: 0.3;
 }
 
 img {
@@ -280,7 +280,7 @@ div .next-point {
   z-index: 100;
   border-radius: 15px;
   padding: 15px;
-  width: 82%;
+  width: 88%;
   height: 88%;
   background: rgba(220, 220, 220, 0.95);
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
@@ -357,6 +357,7 @@ div .next-point {
   bottom: 0;
   -webkit-animation: spin 3s infinite;
   animation: spin 3s infinite;
+  z-index: 10000;
 }
 .logo-holder {
   color: #aaa;
