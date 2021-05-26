@@ -24,7 +24,7 @@ export class ScanQR extends Component {
     }
 
     render() {
-        const previewStyle = {
+        const qrStyle = {
             height: 280,
             width: 280,
             facingMode: "rear",
@@ -36,7 +36,7 @@ export class ScanQR extends Component {
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Welcome to MapQuest</h2>
                     <QrReader
                         delay={this.state.delay}
-                        style={previewStyle}
+                        style={qrStyle}
                         onError={this.handleError}
                         onScan={this.handleScan}
                     />
@@ -48,7 +48,7 @@ export class ScanQR extends Component {
                         <img className="logo-img" src="/images/mapquest-logo.png" alt="logo" width="200"/><br/>
                         &reg;&copy; 2021 - Tankesmedjan. <a href="mailto:tankesmedjan@protonmail.com">Mail us</a>
                     </div>
-                    <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline-image" width="440"/>
+                    <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline" width="440"/>
                 </div>
             </div>
         )
