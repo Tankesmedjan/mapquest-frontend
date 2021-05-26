@@ -6,7 +6,7 @@ import * as Icon from "react-bootstrap-icons";
 export class PurchaseAccess extends Component {
     constructor() {
         super();
-        this.state = {name: '', email: ''};
+        this.state = {name: '', email: '', password: ''};
     }
 
     handleInputChange = (event) =>
@@ -30,11 +30,15 @@ export class PurchaseAccess extends Component {
                         <br/>
                         <div className="form-group">
                             <input placeholder="Enter your email" type="Email" className="form-control"
-                                   name="password" onChange={this.handleInputChange}/>
+                                   name="email" onChange={this.handleInputChange}/>
                         </div>
                         <br/>
+                        <div className="form-group">
+                            <input placeholder="Enter your password" type="password" className="form-control"
+                                   name="password" onChange={this.handleInputChange}/>
+                        </div><br/>
                         <p>
-                            <button className="btn flashy-btn"><Icon.CurrencyDollar/> Get Access Code</button>
+                            <button type="submit" className="btn flashy-btn"><Icon.CurrencyDollar/> Get Access Code</button>
                         </p>
                     </form>
                 </div>
