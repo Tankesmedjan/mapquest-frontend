@@ -2,6 +2,7 @@ import './App.css';
 import GoogleMap from "./components/GoogleMap";
 import LandingPage from "./components/LandingPage";
 import Login from "./components/Login";
+import PurchaseAccess from "./components/PurchaseAccess";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/googlemap" component={GoogleMap} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/purchaseaccess" component={PurchaseAccess} />
         </Switch>
         </BrowserRouter>
 

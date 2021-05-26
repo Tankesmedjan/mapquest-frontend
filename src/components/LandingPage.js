@@ -13,7 +13,7 @@ export class LandingPage extends Component {
                         Build your own story with missions from our library or chose from many ready-to-go stories. </b><br/>
                             <small><i>Only $24.99 for 24h access to the created game.</i></small><br/><br/>
 
-                        <p><button className="btn flashy-btn"><Icon.CurrencyDollar /> Purchase Access</button></p>
+                        <p><Link to="/purchaseaccess"><button className="btn flashy-btn"><Icon.CurrencyDollar /> Purchase Access</button></Link></p>
                         <p><Link to="/login"><button className="btn flashy-btn"><Icon.DoorOpen /> Login</button></Link></p>
                         <p><button className="btn flashy-btn"><Icon.Upc /> Scan QR</button></p>
                         <p><Link to="/googlemap"><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></Link></p>
