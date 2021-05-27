@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import PurchaseAccess from "./components/PurchaseAccess";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import ScanQR from "./components/ScanQR";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/purchaseaccess" component={PurchaseAccess} />
             <Route exact path="/qrscanner" component={ScanQR} />
+            <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
         </BrowserRouter>
 

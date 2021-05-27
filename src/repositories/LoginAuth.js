@@ -8,10 +8,9 @@ export function login (data) {
         .then(response => {
             if (response.data === true) {
                 sessionStorage.setItem('x-access-token', sha256(response.data))
-                alert("LOLOLO")
+                window.location = '/dashboard'
             } else {
                 alert("FAILURE")
             }
         })
-
 }
