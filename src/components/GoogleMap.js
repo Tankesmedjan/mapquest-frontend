@@ -9,7 +9,7 @@ const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
 const NextPoint = ({ text }) => <div className="next-point"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
 const MeOnMap = ({direction}) => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" className={direction}/></div>
-const MissionBox = ({ text, missiontext, question}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/></div>
+const MissionBox = ({ text, missiontext}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/></div>
 
 class GoogleMap extends Component {
     constructor(props) {
@@ -44,6 +44,10 @@ class GoogleMap extends Component {
         if (document.getElementById("mission-timer")) {
                 document.getElementById("mission-timer").style.display = "block";
                 document.getElementById("start-mission-btn-box").style.display = "none";
+            let elems = document.getElementsByClassName('mission-buttons')
+            for(let i = 0; i < elems.length; i++) {
+                elems[i].style.display = 'none';
+            }
             }
     }
 
@@ -105,27 +109,25 @@ class GoogleMap extends Component {
     render() {
         const {mapPointers} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
-        let quest;
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
                 <div className="themissionbox" id="missionboxes">
                     {mapPointers && mapPointers.map((pointer, index) => (
-                        pointer.missionId.missionQAs ? (quest = pointer.missionId.missionQAs.question) : ( quest = " " ),
                             <div key={index} className="mission-box" id={`mission-box-${index}`}>
                                 <MissionBox
                                     text={pointer.missionId.missionName}
                                     missiontext={pointer.missionId.missionDescription}
                                 />
-                                <div id="start-mission-btn-box">
+                                <div className="mission-buttons" id="start-mission-btn-box">
                                     <p><a href="#!" onClick={this.hideMissionBoxes} className="start-mission-btn">Return to Map</a></p>
                                     <p><a href="#!" onClick={this.showMissionTimer} className="start-mission-btn">Start Mission</a></p>
                                 </div>
-                                <div className="mission-timer" id="mission-timer" style={{display: "none"}}>
-                                    <MissionTimer/>
-                                </div>
                             </div>
                     ))}
+                    <div className="mission-wrapper" id="mission-timer" style={{display: "none", zIndex: 100000}}>
+                        <MissionTimer />
+                    </div>
                 </div>
                 <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
                     <GoogleMapReact

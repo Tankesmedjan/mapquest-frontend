@@ -314,9 +314,17 @@ div .next-point {
   position:relative;
   top:1px;
 }
+.mission-wrapper {
+  position: relative;
+  width:100%;
+  top: 300px;
+}
 .mission-started-wrapper {
   width: 100%;
 
+}
+.finished-mission {
+  font-size: 12px;
 }
 .mission-started-wrapper .mission-timer {
   width: 120px;
@@ -328,24 +336,10 @@ div .next-point {
   font-weight: bold;
   margin-left: calc(50% - 60px);
 }
-.mission-timer {
+.runningTimer {
   z-index: 1000;
   transform: scale(1);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.5);
-  }
-
-  70% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0.5);
-  }
+  animation: pulse 1s infinite;
 }
 
 .flashy-btn {
@@ -432,5 +426,19 @@ a {
   }
   to {
     -webkit-transform: rotateY(-360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(0.8);
   }
 }
