@@ -118,7 +118,8 @@ class GoogleMap extends Component {
                                     missiontext={pointer.missionId.missionDescription}
                                 />
                                 <div id="start-mission-btn-box">
-                                    <a href="#!" onClick={this.showMissionTimer} className="start-mission-btn">Start Mission</a>
+                                    <p><a href="#!" onClick={this.hideMissionBoxes} className="start-mission-btn">Return to Map</a></p>
+                                    <p><a href="#!" onClick={this.showMissionTimer} className="start-mission-btn">Start Mission</a></p>
                                 </div>
                                 <div className="mission-timer" id="mission-timer" style={{display: "none"}}>
                                     <MissionTimer/>

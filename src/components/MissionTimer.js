@@ -3,7 +3,7 @@ import React, {Component} from "react";
 class MissionTimer extends Component {
     constructor(props) {
         super(props);
-        this.state = {missionTimer: 0};
+        this.state = {missionTimer: 0, isRunning: true};
     }
 
     componentDidMount() {
@@ -14,18 +14,23 @@ class MissionTimer extends Component {
     }
 
     tick() {
-        this.setState({
-            missionTimer: (this.state.missionTimer+1/100)
-        });
+        if (this.state.isRunning === true) {
+            this.setState({
+                missionTimer: (this.state.missionTimer + 1 / 100)
+            });
+        }
     }
 
     render() {
-        const {missionTimer} = this.state;
+        const {missionTimer, isRunning} = this.state;
+        let imgUrl = "/images/timer.png";
+        if (isRunning) imgUrl = "/images/timer.gif";
         return (
             <div className="mission-started-wrapper">
                 <div className="mission-timer">
-                    <img className="timer" src="/images/timer.gif" width="30" alt="timer" /><br/>{missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})}
+                    <img src={imgUrl} width="30" alt="timer" id="runningTimer" /><br/>{missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})}
                 </div>
+                <br/><p><a href="#!" onClick={() => this.state.isRunning=false} className="start-mission-btn">Stop Time</a></p>
             </div>
         )
     }
