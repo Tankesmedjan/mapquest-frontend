@@ -24,7 +24,7 @@ class MissionTimer extends Component {
         return (
             <div className="mission-started-wrapper">
                 <div className="mission-timer">
-                    <img src="/images/timer.gif" width="30" alt="timer" /><br/>{missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})}
+                    <img className="timer" src="/images/timer.gif" width="30" alt="timer" /><br/>{missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})}
                 </div>
             </div>
         )

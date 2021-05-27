@@ -329,7 +329,24 @@ div .next-point {
 }
 .mission-timer {
   z-index: 1000;
+  transform: scale(1);
+  animation: pulse 2s infinite;
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.5);
+  }
+}
+
 .flashy-btn {
   color: #000;
   transition: all 0.5s;
