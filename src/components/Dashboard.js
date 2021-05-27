@@ -12,7 +12,7 @@ export class Dashboard extends Component {
                 {isAuthenticated() ? (
                     <div className="wrapper-main">
                         <p><Link to="/choosestory"><button className="btn flashy-btn"><Icon.Signpost2Fill /> Choose story</button></Link></p>
-                        <p><button className="btn flashy-btn"><Icon.Wrench /> Manage teams</button></p>
+                        <p><Link to="/manageteams"><button className="btn flashy-btn"><Icon.Wrench /> Manage teams</button></Link></p>
                         <p><button className="btn flashy-btn"><Icon.Map /> Choose game area</button></p>
                         <p><button className="btn flashy-btn"><Icon.ListOl /> Scoreboard</button></p>
                     </div>

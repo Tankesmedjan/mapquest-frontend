@@ -7,6 +7,8 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import ScanQR from "./components/ScanQR";
 import Dashboard from "./components/Dashboard";
 import ChooseStory from "./components/ChooseStory";
+import ManageTeams from "./components/ManageTeams";
+import {CreateTeam} from "./components/CreateTeam";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route exact path="/qrscanner" component={ScanQR} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/choosestory" component={ChooseStory} />
+            <Route exact path="/manageteams" component={ManageTeams} />
+            <Route exact path="/createteam" component={CreateTeam} />
         </Switch>
         </BrowserRouter>
 
