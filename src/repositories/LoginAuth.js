@@ -3,18 +3,26 @@ import sha256 from "sha256";
 
 export function login (data) {
 
-    var remainingAttempts = 3;
     var msg = '';
     http.post('/user/login',
         {email: data.email, password: sha256(data.password) })
         .then(response => {
             if (response.data === true) {
-                sessionStorage.setItem('x-access-token', sha256(response.data))
+                sessionStorage.setItem('x-access-token', sha256(data))
+                sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
                 window.location = '/dashboard'
             } else {
-                msg += 'Incorrect email or password. Remaining attempts: ' + remainingAttempts;
+                msg += 'Incorrect email or password.'
                 alert(msg)
-                remainingAttempts--;
             }
         })
+}
+
+export function isAuthenticated(){
+    if (sessionStorage.getItem('x-access-token-expiration') < Date.now()) {
+        sessionStorage.clear()
+    } else {
+        sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
+        return sessionStorage.getItem('x-access-token') && sessionStorage.getItem('x-access-token-expiration') > Date.now()
+    }
 }
