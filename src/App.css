@@ -49,6 +49,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+
 }
 button {
   font-family: 'Permanent Marker', cursive!important;
@@ -69,6 +70,20 @@ button:hover {
   min-height: 750px;
   max-height: 750px;
   z-index: 2;
+
+}
+
+.story-wrapper{
+  max-height: 650px;
+  overflow: scroll;
+  overflow-x: hidden;
+
+}
+
+.story-text {
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: small;
 }
 .container p {
   padding-bottom: 20px;
@@ -396,6 +411,7 @@ a {
   text-decoration: none!important;
   color: #61dafb!important;
 }
+
 
 @keyframes App-logo-spin {
   from {

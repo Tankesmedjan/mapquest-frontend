@@ -12,6 +12,7 @@ export class ManageTeams extends Component {
 
             <>
                 <h1 className="maps-header">MapQuest</h1>
+                <div className="container">
                 <div className="manageteam-wrapper">
                     <br/>
                     <br/>
@@ -24,8 +25,11 @@ export class ManageTeams extends Component {
 
 
                     <div className="wrapper-footer">
+                        <div className="logo-holder">
+                        </div>
                         <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline" width="440"/>
                     </div>
+                </div>
                 </div>
             </>
         )

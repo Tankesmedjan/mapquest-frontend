@@ -30,21 +30,27 @@ componentDidMount() {
     const {stories} = this.state
         return (
             <>
+
                 <h1 className="maps-header">MapQuest</h1>
+                <div className="container">
+                <br/>
                 <div className="story-wrapper">
                     {stories && stories.map((stories, index) => (
                     <div key={index} className="story-box">
-                        <h4 >{stories.storyName}</h4>
-                        {stories.storyText}
+                        <h4 className="maps-header">{stories.storyName}</h4>
+                        <h6 className="story-text">{stories.storyText}</h6>
                         <p><button className="btn flashy-btn"><Icon.PlayFill /> Choose this story</button></p>
                         <br/>
-                        <br/>
+
                     </div>
                     ))}
 
                     <div className="wrapper-footer">
+                        <div className="logo-holder">
+                        </div>
                         <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline" width="440"/>
                     </div>
+                </div>
                 </div>
             </>
         )

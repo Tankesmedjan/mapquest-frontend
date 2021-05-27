@@ -27,9 +27,10 @@ export class CreateTeam extends Component {
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
+                <div className="container">
                 <div className="createteam-wrapper">
                     <br/>
-                    <h3>Choose Team Name</h3>
+                    <h3 className="maps-header">Choose Team Name</h3>
                     <form onSubmit={(e) => this.addTeam(e)}>
                         <div className="form-group">
                             <input type="text" placeholder="Enter Team Name" className="form-control"
@@ -43,8 +44,11 @@ export class CreateTeam extends Component {
                     </form>
 
                     <div className="wrapper-footer">
+                        <div className="logo-holder">
+                        </div>
                         <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline" width="440"/>
                     </div>
+                </div>
                 </div>
             </>
         )
