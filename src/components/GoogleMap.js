@@ -3,12 +3,13 @@ import GoogleMapReact from 'google-map-react';
 import MapPointers from "../services/MapPointers";
 import TeamAndPlayers from "../services/TeamAndPlayers";
 import PropTypes from "prop-types";
+import MissionTimer from "./MissionTimer";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
 const NextPoint = ({ text }) => <div className="next-point"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
 const MeOnMap = ({direction}) => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" className={direction}/></div>
-const MissionBox = ({ text, missiontext, question}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/>{question}<br/><br/><a href="#!" className="start-mission-btn">Start Mission</a></div>;
+const MissionBox = ({ text, missiontext, question}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/></div>
 
 class GoogleMap extends Component {
     constructor(props) {
@@ -38,6 +39,12 @@ class GoogleMap extends Component {
                     }))
                 }
             )
+    }
+    showMissionTimer() {
+        if (document.getElementById("mission-timer")) {
+                document.getElementById("mission-timer").style.display = "block";
+                document.getElementById("start-mission-btn-box").style.display = "none";
+            }
     }
 
     showMissionBox = (indx) => {
@@ -85,7 +92,7 @@ class GoogleMap extends Component {
     }
 
     componentDidMount() {
-        // -- Hard coded values to be replaced with dynamic from AP --
+        // -- Hard coded values to be replaced with dynamic from API --
             let fakeGameId = 1;
             let fakeTeamId = 8;
         // -- End --
@@ -93,7 +100,6 @@ class GoogleMap extends Component {
         this.loadGameMapPointers(fakeGameId)
         this.loadTeamAndPlayers(fakeTeamId)
         this.showCurrentLocation()
-        console.log(this.state.teamAndPlayers)
     }
 
     render() {
@@ -106,12 +112,17 @@ class GoogleMap extends Component {
                 <div className="themissionbox" id="missionboxes">
                     {mapPointers && mapPointers.map((pointer, index) => (
                         pointer.missionId.missionQAs ? (quest = pointer.missionId.missionQAs.question) : ( quest = " " ),
-                            <div key={index} className="mission-box" id={`mission-box-${index}`} onClick={this.hideMissionBoxes}>
+                            <div key={index} className="mission-box" id={`mission-box-${index}`}>
                                 <MissionBox
                                     text={pointer.missionId.missionName}
                                     missiontext={pointer.missionId.missionDescription}
-                                    question={quest}
                                 />
+                                <div id="start-mission-btn-box">
+                                    <a href="#!" onClick={this.showMissionTimer} className="start-mission-btn">Start Mission</a>
+                                </div>
+                                <div className="mission-timer" id="mission-timer" style={{display: "none"}}>
+                                    <MissionTimer/>
+                                </div>
                             </div>
                     ))}
                 </div>
@@ -159,9 +170,10 @@ class GoogleMap extends Component {
         )
     }
 }
-
+// -- Hard coded values to be replaced with dynamic from API --
 GoogleMap.defaultProps = {
     center: {lat: 57.7273132, lng: 12.0443108},
     zoom: 18.7
-};
+}
+// -- End --
 export default GoogleMap;
