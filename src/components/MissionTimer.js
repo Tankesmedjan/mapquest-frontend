@@ -53,7 +53,7 @@ class MissionTimer extends Component {
                 <div className="mission-timer">
                     <img src={imgUrl} width="30" alt="timer" id="runningTimer" className="runningTimer" /><br/>{missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})}
                 </div>
-                <br/><p><a href="#!" onClick={() => this.state.isRunning=false} className="start-mission-btn">Stop Time</a></p>
+                <br/><p><a href="#!" onClick={() => this.setState({isRunning: false})} className="start-mission-btn">Stop Time</a></p>
                 <div id="finished-mission" className="finished-mission" style={{display: "none"}}>
                     <b>Good Job!<br/> Your team finnished this mission in {missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})} seconds.</b>
                     <br/><br/>
