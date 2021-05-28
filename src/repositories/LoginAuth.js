@@ -1,5 +1,6 @@
 import http from "../http-common";
 import sha256 from "sha256";
+import React from "react";
 
 export function login (data) {
 
@@ -21,6 +22,7 @@ export function login (data) {
 export function isAuthenticated(){
     if (sessionStorage.getItem('x-access-token-expiration') < Date.now()) {
         sessionStorage.clear()
+        window.location = '/login'
     } else {
         sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
         return sessionStorage.getItem('x-access-token') && sessionStorage.getItem('x-access-token-expiration') > Date.now()
