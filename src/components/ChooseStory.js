@@ -4,6 +4,7 @@ import * as Icon from "react-bootstrap-icons";
 import http from "../http-common";
 import StoryService from "../services/StoryService";
 import PropTypes from "prop-types";
+import {isAuthenticated} from "../repositories/LoginAuth";
 
 export class ChooseStory extends Component {
 
@@ -27,7 +28,10 @@ componentDidMount() {
 }
 
     render() {
-    const {stories} = this.state
+        {
+            isAuthenticated()
+        }
+        const {stories} = this.state
         return (
             <>
 

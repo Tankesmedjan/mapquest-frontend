@@ -7,16 +7,18 @@ import {isAuthenticated} from "../repositories/LoginAuth";
 export class Dashboard extends Component {
 
     render() {
+        {
+            isAuthenticated()
+        }
         return (
             <div className="container">
-                {isAuthenticated() ? (
                     <div className="wrapper-main">
                         <p><Link to="/choosestory"><button className="btn flashy-btn"><Icon.Signpost2Fill /> Choose story</button></Link></p>
                         <p><Link to="/manageteams"><button className="btn flashy-btn"><Icon.Wrench /> Manage teams</button></Link></p>
                         <p><button className="btn flashy-btn"><Icon.Map /> Choose game area</button></p>
                         <p><button className="btn flashy-btn"><Icon.ListOl /> Scoreboard</button></p>
                     </div>
-                ) : ( <div className="container"><h2>You need to be logged in. </h2><h6>Please <a href='/login' ><small>login</small></a></h6></div>)}
+
 
                 <div className="wrapper-footer">
                     <div className="logo-holder">
