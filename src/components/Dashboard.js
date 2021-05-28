@@ -8,7 +8,7 @@ import FooterContent from "./FooterContent";
 export class Dashboard extends Component {
 
     render() {
-        {isAuthenticated()}
+        if (!isAuthenticated()) return null;
         const insertFooter = FooterContent
         return (
             <div className="container">

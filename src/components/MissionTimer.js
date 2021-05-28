@@ -3,7 +3,8 @@ import React, {Component} from "react";
 class MissionTimer extends Component {
     constructor(props) {
         super(props);
-        this.state = {missionTimer: 0, isRunning: true};
+            this.state = {missionTimer: 0, isRunning: true};
+
     }
 
     componentDidMount() {

@@ -40,7 +40,7 @@ class GoogleMap extends Component {
                 }
             )
     }
-    showMissionTimer() {
+    showMissionTimer = () => {
         if (document.getElementById("mission-timer")) {
                 document.getElementById("mission-timer").style.display = "block";
                 document.getElementById("start-mission-btn-box").style.display = "none";
@@ -48,7 +48,7 @@ class GoogleMap extends Component {
             for(let i = 0; i < elems.length; i++) {
                 elems[i].style.display = 'none';
             }
-            }
+        }
     }
 
     showMissionBox = (indx) => {
@@ -107,7 +107,7 @@ class GoogleMap extends Component {
     }
 
     render() {
-        const {mapPointers} = this.state;
+        const {mapPointers, timer} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
         return (
             <>
@@ -126,7 +126,7 @@ class GoogleMap extends Component {
                             </div>
                     ))}
                     <div className="mission-wrapper" id="mission-timer" style={{display: "none", zIndex: 100000}}>
-                        <MissionTimer />
+                       <MissionTimer isTimerRunning={timer} />
                     </div>
                 </div>
                 <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>

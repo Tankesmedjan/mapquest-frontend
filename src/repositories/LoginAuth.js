@@ -10,7 +10,7 @@ export function login (data) {
         .then(response => {
             if (response.data === true) {
                 sessionStorage.setItem('x-access-token', sha256(data))
-                sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
+                sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 10)
                 window.location = '/dashboard'
             } else {
                 msg += 'Incorrect email or password.'
@@ -21,7 +21,7 @@ export function login (data) {
 
 export function isAuthenticated(){
     if (sessionStorage.getItem('x-access-token-expiration') < Date.now()) {
-        sessionStorage.clear()
+        sessionStorage.clear();
         window.location = '/login'
     } else {
         sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
