@@ -29,9 +29,7 @@ componentDidMount() {
 }
 
     render() {
-        {
-            isAuthenticated()
-        }
+        {isAuthenticated()}
         const {stories} = this.state
         const insertFooter = FooterContent
         return (
