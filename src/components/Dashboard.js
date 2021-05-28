@@ -3,10 +3,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import {Link} from "react-router-dom";
 import {isAuthenticated} from "../repositories/LoginAuth";
+import FooterContent from "./FooterContent";
 
 export class Dashboard extends Component {
 
     render() {
+        const insertFooter = FooterContent
         return (
             <div className="container">
                 {isAuthenticated() ? (
@@ -19,13 +21,8 @@ export class Dashboard extends Component {
                     </div>
                 ) : ( <div className="container"><h2>You need to be logged in. </h2><h6>Please <a href='/login' ><small>login</small></a></h6></div>)}
 
-                <div className="wrapper-footer">
-                    <div className="logo-holder">
-                        <img className="logo-img" src="/images/mapquest-logo.png" alt="logo" width="200"/><br/>
-                        &reg;&copy; 2021 - Tankesmedjan. <a href="mailto:tankesmedjan@protonmail.com">Mail us</a>
-                    </div>
-                    <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline" width="440"/>
-                </div>
+                {insertFooter}
+
             </div>
 
         )

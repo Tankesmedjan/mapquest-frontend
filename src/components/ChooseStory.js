@@ -4,6 +4,7 @@ import * as Icon from "react-bootstrap-icons";
 import http from "../http-common";
 import StoryService from "../services/StoryService";
 import PropTypes from "prop-types";
+import FooterContent from "./FooterContent";
 
 export class ChooseStory extends Component {
 
@@ -28,6 +29,7 @@ componentDidMount() {
 
     render() {
     const {stories} = this.state
+    const insertFooter = FooterContent
         return (
             <>
 
@@ -45,11 +47,8 @@ componentDidMount() {
                     </div>
                     ))}
 
-                    <div className="wrapper-footer">
-                        <div className="logo-holder">
-                        </div>
-                        <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline" width="440"/>
-                    </div>
+                    {insertFooter}
+
                 </div>
                 </div>
             </>

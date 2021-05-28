@@ -2,9 +2,11 @@ import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import {Link} from "react-router-dom";
+import FooterContent from "./FooterContent";
 
 export class LandingPage extends Component {
     render() {
+        const insertFooter = FooterContent
         return (
                 <div className="container">
                     <div className="wrapper-main">
@@ -18,13 +20,9 @@ export class LandingPage extends Component {
                         <p><Link to="/qrscanner"><button className="btn flashy-btn"><Icon.Upc /> Scan QR</button></Link></p>
                         <p><Link to="/googlemap"><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></Link></p>
                     </div>
-                    <div className="wrapper-footer">
-                        <div className="logo-holder">
-                            <img className="logo-img" src="/images/mapquest-logo.png" alt="logo" width="200"/><br/>
-                           &reg;&copy; 2021 - Tankesmedjan. <a href="mailto:tankesmedjan@protonmail.com">Mail us</a>
-                        </div>
-                        <img className="skyline-image" src="/images/gothenburg-skyline.png" alt="skyline" width="440"/>
-                    </div>
+
+                    {insertFooter}
+
                 </div>
 
         )
