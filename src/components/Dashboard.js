@@ -11,6 +11,7 @@ export class Dashboard extends Component {
             <div className="container">
                 {isAuthenticated() ? (
                     <div className="wrapper-main">
+                        <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Dashboard</h2><br/>
                         <p><Link to="/choosestory"><button className="btn flashy-btn"><Icon.Signpost2Fill /> Choose story</button></Link></p>
                         <p><Link to="/manageteams"><button className="btn flashy-btn"><Icon.Wrench /> Manage teams</button></Link></p>
                         <p><button className="btn flashy-btn"><Icon.Map /> Choose game area</button></p>
