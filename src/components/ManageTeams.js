@@ -4,6 +4,7 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import FooterContent from "./FooterContent";
 import {isAuthenticated} from "../repositories/LoginAuth";
+import Teams from "./Teams";
 
 
 export class ManageTeams extends Component {
@@ -16,6 +17,7 @@ export class ManageTeams extends Component {
                 <div className="container">
                 <div className="wrapper-main">
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Manage Teams</h2><br/>
+                    <Teams/>
                     <p><Link to="/createteam"><button className="btn flashy-btn"><Icon.Plus /> Create Team</button></Link></p>
                     <p><button className="btn flashy-btn"><Icon.Plus /> Add Player To Team</button></p>
                 </div>

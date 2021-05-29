@@ -106,7 +106,9 @@ button:hover {
   top: 580px;
   opacity: 0.3;
 }
-
+.wrapper-teams {
+  padding-bottom: 30px;
+}
 img {
   max-width: 100%;
   margin-left: 0;
