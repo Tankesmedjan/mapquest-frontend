@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
-import http from "../http-common";
 import StoryService from "../services/StoryService";
-import PropTypes from "prop-types";
 import {isAuthenticated} from "../repositories/LoginAuth";
 import FooterContent from "./FooterContent";
 
@@ -29,7 +27,7 @@ componentDidMount() {
 }
 
     render() {
-        {isAuthenticated()}
+        isAuthenticated()
         const {stories} = this.state
         const insertFooter = FooterContent
         return (

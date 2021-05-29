@@ -1,6 +1,5 @@
 import http from "../http-common";
 import sha256 from "sha256";
-import React from "react";
 
 export function login (data) {
 

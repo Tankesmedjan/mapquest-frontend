@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
-import http from "../http-common";
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import FooterContent from "./FooterContent";
@@ -10,7 +9,7 @@ import {isAuthenticated} from "../repositories/LoginAuth";
 export class ManageTeams extends Component {
 
     render() {
-        {isAuthenticated()}
+        isAuthenticated()
         const insertFooter = FooterContent
         return (
             <>

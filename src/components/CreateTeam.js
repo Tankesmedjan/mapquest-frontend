@@ -24,7 +24,7 @@ export class CreateTeam extends Component {
     }
 
     render() {
-        {isAuthenticated()}
+        isAuthenticated()
         const insertFooter = FooterContent;
         return (
             <>
