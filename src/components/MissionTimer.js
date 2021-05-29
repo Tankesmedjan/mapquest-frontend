@@ -15,7 +15,7 @@ class MissionTimer extends Component {
     }
 
     tick() {
-        if (this.state.isRunning === true) {
+         if (this.state.isRunning === true && document.getElementById("mission-timer").style.display === "block") {
             this.setState({
                 missionTimer: (this.state.missionTimer + 1 / 100)
             });
@@ -55,10 +55,10 @@ class MissionTimer extends Component {
                     <img src={imgUrl} width="30" alt="timer" id="runningTimer" className="runningTimer" /><br/>{missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})}
                 </div>
                 <br/><p><a href="#!" onClick={() => this.setState({isRunning: false})} className="start-mission-btn">Stop Time</a></p>
-                <div id="finished-mission" className="finished-mission" style={{display: "none"}}>
+                <div id="finished-mission" className="finished-mission">
                     <b>Good Job!<br/> Your team finnished this mission in {missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})} seconds.</b>
                     <br/><br/>
-                    <a href="#!" onClick={this.returnToMap} className="start-mission-btn">Return to Map</a>
+                    <a href="#!" onClick={() => this.returnToMap() } className="start-mission-btn">Return to Map</a>
                 </div>
             </div>
         )
