@@ -8,7 +8,7 @@ import ScanQR from "./components/ScanQR";
 import Dashboard from "./components/Dashboard";
 import ChooseStory from "./components/ChooseStory";
 import ManageTeams from "./components/ManageTeams";
-import {CreateTeam} from "./components/CreateTeam";
+import CreateTeam from "./components/CreateTeam";
 
 function App() {
   return (

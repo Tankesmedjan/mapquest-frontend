@@ -4,6 +4,7 @@ import MapPointers from "../services/MapPointers";
 import TeamAndPlayers from "../services/TeamAndPlayers";
 import PropTypes from "prop-types";
 import MissionTimer from "./MissionTimer";
+import * as Icon from "react-bootstrap-icons";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
@@ -120,8 +121,8 @@ class GoogleMap extends Component {
                                     missiontext={pointer.missionId.missionDescription}
                                 />
                                 <div className="mission-buttons" id="start-mission-btn-box">
-                                    <p><a href="#!" onClick={this.hideMissionBoxes} className="start-mission-btn">Return to Map</a></p>
-                                    <p><a href="#!" onClick={this.showMissionTimer} className="start-mission-btn">Start Mission</a></p>
+                                    <p><a href="#!" onClick={this.hideMissionBoxes} className="start-mission-btn"> <Icon.Geo /> Back to Map </a></p>
+                                    <p><a href="#!" onClick={this.showMissionTimer} className="start-mission-btn"> <Icon.Stopwatch /> Start mission timer & Go! </a></p>
                                 </div>
                             </div>
                     ))}
