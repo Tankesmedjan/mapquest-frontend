@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import * as Icon from "react-bootstrap-icons";
+import GameProgress from "../services/GameProgress";
 
 class MissionTimer extends Component {
     constructor(props) {
         super(props);
-            this.state = {missionTimer: 0, isRunning: true}
+            this.state = {missionTimer: 0, isRunning: true, gameId: this.props.gameId, teamId: this.props.teamId, missionId: this.props.missionId}
     }
 
     componentDidMount() {
@@ -34,6 +35,8 @@ class MissionTimer extends Component {
     }
 
     returnToMap = () => {
+        let progressData = {'gameid': this.state.gameId, 'missionid': this.state.missionId, 'teamid': this.state.teamId, 'mission_time': this.state.missionTimer, 'q_answer': null}
+        GameProgress.saveGameProgress(progressData)
         this.setState({
             missionTimer: 0,
             isRunning: true

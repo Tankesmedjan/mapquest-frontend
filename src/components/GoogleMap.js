@@ -10,7 +10,7 @@ const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
 const NextPoint = ({ text }) => <div className="next-point"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
 const MeOnMap = ({direction}) => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" className={direction}/></div>
-const MissionBox = ({ text, missiontext}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/></div>
+const MissionBox = ({ text, missiontext, missionid}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/><div style={{display:"none"}}>{missionid}</div></div>
 
 class GoogleMap extends Component {
     constructor(props) {
@@ -21,7 +21,10 @@ class GoogleMap extends Component {
                 lngs: 0
             },
             mapPointers: [],
-            teamAndPlayers: {}
+            teamAndPlayers: {},
+            gameId: 1,
+            teamId: 8,
+            missionId: 0
         }
     }
     static propTypes = {
@@ -41,7 +44,7 @@ class GoogleMap extends Component {
                 }
             )
     }
-    showMissionTimer = () => {
+    showMissionTimer = (event) => {
         if (document.getElementById("mission-timer")) {
                 document.getElementById("mission-timer").style.display = "block";
                 document.getElementById("start-mission-btn-box").style.display = "none";
@@ -49,6 +52,9 @@ class GoogleMap extends Component {
             for(let i = 0; i < elems.length; i++) {
                 elems[i].style.display = 'none';
             }
+        this.setState({
+            missionId: event
+        })
         }
     }
 
@@ -97,18 +103,13 @@ class GoogleMap extends Component {
     }
 
     componentDidMount() {
-        // -- Hard coded values to be replaced with dynamic from API --
-            let fakeGameId = 1;
-            let fakeTeamId = 8;
-        // -- End --
-
-        this.loadGameMapPointers(fakeGameId)
-        this.loadTeamAndPlayers(fakeTeamId)
+        this.loadGameMapPointers(this.state.gameId)
+        this.loadTeamAndPlayers(this.state.teamId)
         this.showCurrentLocation()
     }
 
     render() {
-        const {mapPointers, timer} = this.state;
+        const {mapPointers, timer, gameId, teamId, missionId} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
         return (
             <>
@@ -119,15 +120,16 @@ class GoogleMap extends Component {
                                 <MissionBox
                                     text={pointer.missionId.missionName}
                                     missiontext={pointer.missionId.missionDescription}
+                                    missionid={pointer.missionId.id}
                                 />
                                 <div className="mission-buttons" id="start-mission-btn-box">
                                     <p><a href="#!" onClick={this.hideMissionBoxes} className="start-mission-btn"> <Icon.Geo /> Back to Map </a></p>
-                                    <p><a href="#!" onClick={this.showMissionTimer} className="start-mission-btn"> <Icon.Stopwatch /> Start mission timer & Go! </a></p>
+                                    <p><a href="#!" onClick={(event) => this.showMissionTimer(pointer.missionId.id)} className="start-mission-btn"> <Icon.Stopwatch /> Start mission timer & Go! </a></p>
                                 </div>
                             </div>
                     ))}
                     <div className="mission-wrapper" id="mission-timer" style={{display: "none", zIndex: 100000}}>
-                       <MissionTimer isTimerRunning={timer} />
+                       <MissionTimer isTimerRunning={timer} gameId={gameId} teamId={teamId} missionId={missionId} />
                     </div>
                 </div>
                 <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
