@@ -5,6 +5,7 @@ import TeamAndPlayers from "../services/TeamAndPlayers";
 import PropTypes from "prop-types";
 import MissionTimer from "./MissionTimer";
 import * as Icon from "react-bootstrap-icons";
+import GameProgress from "../services/GameProgress";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
@@ -24,7 +25,8 @@ class GoogleMap extends Component {
             teamAndPlayers: {},
             gameId: 1,
             teamId: 8,
-            missionId: 0
+            missionId: 0,
+            gameProgress: []
         }
     }
     static propTypes = {
@@ -88,7 +90,14 @@ class GoogleMap extends Component {
                 });
             })
     }
-
+    loadGameProgressPointers(gameId, teamId) {
+        GameProgress.getGameProgress(gameId, teamId)
+            .then(response => {
+                this.setState( {
+                    gameProgress: response.data
+                });
+            })
+    }
     loadTeamAndPlayers(teamId) {
         TeamAndPlayers.getAllPlayersForTeam(teamId)
             .then(response => {
@@ -104,12 +113,13 @@ class GoogleMap extends Component {
 
     componentDidMount() {
         this.loadGameMapPointers(this.state.gameId)
+        this.loadGameProgressPointers(this.state.gameId, this.state.teamId)
         this.loadTeamAndPlayers(this.state.teamId)
         this.showCurrentLocation()
     }
 
     render() {
-        const {mapPointers, timer, gameId, teamId, missionId} = this.state;
+        const {mapPointers, gameProgress, timer, gameId, teamId, missionId} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
         return (
             <>
@@ -148,22 +158,34 @@ class GoogleMap extends Component {
                         }}
                     >
                         {mapPointers && mapPointers.map((mappointers, index) => (
-                            lats <= (mappointers.lat + 0.00003) && lats >= (mappointers.lat -0.00003) && lngs <= (mappointers.lng + 0.00003) && lngs >= (mappointers.lng - 0.00003) ? (
-                                <NextPoint
-                                    key={index}
-                                    lat={mappointers.lat}
-                                    lng={mappointers.lng}
-                                    text={mappointers.missionId.missionName}
-                                />
-                            ) : (
-                                <Point
-                                    key={index}
-                                    lat={mappointers.lat}
-                                    lng={mappointers.lng}
-                                    text={mappointers.missionId.missionName}
-                                />
-                            )
-                            ))}
+
+                            gameProgress && gameProgress.map((gp) => (
+                                 gp.missionid === mappointers.missionId.id ? (
+                                     <DonePoint
+                                        key={index}
+                                        lat={mappointers.lat}
+                                        lng={mappointers.lng}
+                                        text={mappointers.missionId.missionName}
+                                     />
+                                 ) : (
+                                    lats <= (mappointers.lat + 0.00003) && lats >= (mappointers.lat -0.00003) && lngs <= (mappointers.lng + 0.00003) && lngs >= (mappointers.lng - 0.00003) ? (
+                                        <NextPoint
+                                            key={index}
+                                            lat={mappointers.lat}
+                                            lng={mappointers.lng}
+                                            text={mappointers.missionId.missionName}
+                                        />
+                                    ) : (
+
+                                        <Point
+                                            key={index}
+                                            lat={mappointers.lat}
+                                            lng={mappointers.lng}
+                                            text={mappointers.missionId.missionName}
+                                        />
+                                    )
+                                )
+                            ))))}
                         <MeOnMap
                             lat={lats}
                             lng={lngs}
