@@ -276,6 +276,24 @@ div .next-point {
   left: -30px;
   top: -30px;
 }
+
+.team-player-box {
+  display: none;
+}
+
+.create-team {
+  height: auto;
+  display: none;
+  margin-bottom: 20px;
+  animation: ease-in-out 2s;
+}
+.input-text {
+  width: 300px;
+  font-size: 14px;
+  padding: 5px;
+
+}
+
 .themissionbox {
   position: absolute;
   width: 100%;
@@ -413,6 +431,12 @@ div .next-point {
 a {
   text-decoration: none!important;
   color: #61dafb!important;
+}
+.team-header {
+color: #FFFFFF;
+}
+.team-header:hover {
+  color: #61dafb;
 }
 
 
