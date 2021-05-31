@@ -439,6 +439,11 @@ color: #FFFFFF;
   color: #61dafb;
 }
 
+.player-header {
+  color: #FFFFFF;
+  text-align: left;
+  padding-left: 20px;
+}
 
 @keyframes App-logo-spin {
   from {

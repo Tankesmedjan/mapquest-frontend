@@ -10,8 +10,6 @@ import ManageTeamService from "../services/ManageTeamService";
 import CreateTeam from "./CreateTeam";
 import PlayersInTeam from "./PlayersInTeam";
 
-const TeamBox = ({ teamName, playerName}) => <div><br/><h3>{teamName}</h3><hr/>{playerName}<br/><br/><hr/><br/><br/></div>
-
 export class ManageTeams extends Component {
     constructor(props) {
         super(props)
@@ -19,9 +17,7 @@ export class ManageTeams extends Component {
             teams: [],
             players: []
         }
-
     }
-
 
     getTeamByGameID(gameId) {
     ManageTeamService.getTeamByGameID(1)
@@ -32,14 +28,6 @@ export class ManageTeams extends Component {
         })
     }
 
-    getPlayersByTeamID(teamId) {
-        ManageTeamService.getPlayersByTeamID(teamId)
-            .then(response => {
-                this.setState( {
-                    players: response.data
-                });
-                })
-    }
     showTeamBox =(index) =>{
         if (document.getElementById("tp-box-0"))
         {
@@ -61,9 +49,7 @@ export class ManageTeams extends Component {
 
     componentDidMount() {
         this.getTeamByGameID(1)
-        this.getPlayersByTeamID(1)
     }
-
 
     render() {
         isAuthenticated()
@@ -85,11 +71,9 @@ export class ManageTeams extends Component {
                         {teams && teams.map((teams, index) => (
                             <div key={index} >
                                 <a href="#!" className="team-box" onClick={(e)=>this.showTeamBox(index)}> <h3 className="team-header">{teams.teamName}</h3></a>
-
                                 <div className="team-player-box" id={`tp-box-${index}`}>
-
-                                    <PlayersInTeam/>
-
+                                    <PlayersInTeam
+                                        tId={teams.id}/>
                                     </div>
                             </div>
 
