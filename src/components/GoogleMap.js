@@ -129,7 +129,7 @@ class GoogleMap extends Component {
                             </div>
                     ))}
                     <div className="mission-wrapper" id="mission-timer" style={{display: "none", zIndex: 100000}}>
-                       <MissionTimer isTimerRunning={timer} gameId={gameId} teamId={teamId} missionId={missionId} />
+                       <MissionTimer isTimerRunning={timer} game={gameId} team={teamId} mission={missionId} />
                     </div>
                 </div>
                 <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
