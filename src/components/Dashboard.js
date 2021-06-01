@@ -17,7 +17,7 @@ export class Dashboard extends Component {
                         <p><Link to="/choosestory"><button className="btn flashy-btn"><Icon.Signpost2Fill /> Choose story</button></Link></p>
                         <p><Link to="/manageteams"><button className="btn flashy-btn"><Icon.Wrench /> Manage teams</button></Link></p>
                         <p><button className="btn flashy-btn"><Icon.Map /> Choose game area</button></p>
-                        <p><button className="btn flashy-btn"><Icon.ListOl /> Scoreboard</button></p>
+                        <p><Link to="/scoreboard"><button className="btn flashy-btn"><Icon.ListOl /> Scoreboard</button></Link></p>
                     </div>
 
                 {insertFooter}

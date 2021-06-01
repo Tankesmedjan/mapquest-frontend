@@ -9,6 +9,7 @@ import Dashboard from "./components/Dashboard";
 import ChooseStory from "./components/ChooseStory";
 import ManageTeams from "./components/ManageTeams";
 import CreateTeam from "./components/CreateTeam";
+import Scoreboard from "./components/Scoreboard";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/choosestory" component={ChooseStory} />
             <Route exact path="/manageteams" component={ManageTeams} />
             <Route exact path="/createteam" component={CreateTeam} />
+            <Route exact path="/scoreboard" component={Scoreboard} />
         </Switch>
         </BrowserRouter>
 
