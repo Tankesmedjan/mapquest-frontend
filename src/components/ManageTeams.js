@@ -50,7 +50,7 @@ export class ManageTeams extends Component {
     }
 
     render() {
-        isAuthenticated()
+        if (!isAuthenticated()) return null;
         const insertFooter = FooterContent
         const {teams} = this.state
         return (

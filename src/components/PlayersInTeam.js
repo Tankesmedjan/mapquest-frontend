@@ -40,7 +40,7 @@ export class PlayersInTeam extends Component {
     }
 
     render() {
-        isAuthenticated()
+        if (!isAuthenticated()) return null;
         const {players} = this.state
         return (
             <>
