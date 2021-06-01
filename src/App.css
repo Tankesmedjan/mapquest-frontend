@@ -230,6 +230,24 @@ h6 {
   left: 0;
   top: 100px;
 }
+.icon-dash {
+  margin-top: 13px;
+  float: right;
+  font-size: medium;
+  color: #FFFFFF;
+}
+.icon-dash:hover{
+  color: #ff0f0f;
+}
+.icon-dash-player{
+  color: #FFFFFF;
+  float: left;
+  font-size: medium;
+  margin-top: 3px;
+}
+.icon-dash-player:hover{
+  color: #ff0f0f;
+}
 div .pintext {
   margin-left: -31px;
   margin-top: -13px;
