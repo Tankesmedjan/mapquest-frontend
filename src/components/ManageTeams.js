@@ -7,6 +7,7 @@ import Teams from "./Teams";
 import ManageTeamService from "../services/ManageTeamService";
 import CreateTeam from "./CreateTeam";
 import PlayersInTeam from "./PlayersInTeam";
+import http from "../http-common";
 
 export class ManageTeams extends Component {
     constructor(props) {
@@ -44,9 +45,15 @@ export class ManageTeams extends Component {
         }
     }
 
+    deleteTeam = (teamId) => {
+        http.delete(`/team/delete?id=${teamId}`)
+    };
 
     componentDidMount() {
         this.getTeamByGameID(1)
+    }
+    componentDidUpdate() {
+        this.getTeamByGameID(1);
     }
 
     render() {
@@ -68,7 +75,7 @@ export class ManageTeams extends Component {
                     <div className="team-list">
                         {teams && teams.map((teams, index) => (
                             <div key={index} >
-                                <a href="#!" className="team-box" onClick={(e)=>this.showTeamBox(index)}> <h3 className="team-header">{teams.teamName}</h3></a>
+                                <a href="#!" className="team-box" onClick={(e)=>this.showTeamBox(index)}> <h3 className="team-header">{teams.teamName} <a href="#!" onClick={this.deleteTeam.bind(this, teams.id)}><Icon.DashCircleFill className="icon-dash" /></a></h3></a>
                                 <div className="team-player-box" id={`tp-box-${index}`}>
                                     <PlayersInTeam
                                         tId={teams.id}/>
