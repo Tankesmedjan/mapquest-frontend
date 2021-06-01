@@ -5,6 +5,10 @@ import http from "../http-common";
 import {isAuthenticated} from "../repositories/LoginAuth";
 import ManageTeamService from "../services/ManageTeamService";
 
+function refreshPage(){
+    window.location.reload(false);
+}
+
 export class PlayersInTeam extends Component {
     constructor(props) {
         super(props);
@@ -35,8 +39,16 @@ export class PlayersInTeam extends Component {
         }
     }
 
+    deletePlayer = (playersId) => {
+        http.delete(`/player/delete?id=${playersId}`)
+    };
+
     componentDidMount() {
         this.getPlayersByTeamID(this.state.teamId)
+    }
+
+    componentDidUpdate() {
+        this.getPlayersByTeamID(this.state.teamId);
     }
 
     render() {
@@ -46,12 +58,12 @@ export class PlayersInTeam extends Component {
             <>
                 <form onSubmit={(e) => this.addPlayer(e)}>
                     <input type="text" placeholder="Enter Player Name" className="input-text" name="name" onChange={this.handleInputChange}/>
-                    <button type="submit" className="btn "><Icon.PlusCircleFill /> Add Player</button>
+                    <button type="submit" className="btn " ><Icon.PlusCircleFill /> Add Player</button>
                 </form>
                 <div className="player-list">
                     {players && players.map((players, index) => (
                         <div key={index}>
-                            <div className="player-box"> <h6 className="player-header">{players.name} </h6></div>
+                            <div className="player-box"> <span className="h6">{players.name} <a href="#!" onClick={this.deletePlayer.bind(this, players.id)}><Icon.DashCircleFill color={'#FFFFFF'} /></a></span></div>
                         </div>))}
                 </div>
                 <hr/>
