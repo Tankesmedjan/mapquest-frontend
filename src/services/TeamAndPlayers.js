@@ -4,8 +4,8 @@ class TeamAndPlayers {
     getAllPlayersForTeam(teamId) {
         return https.get(`/team/teamplayer?id=${teamId}`);
     }
-    getAllTeamsForGame(gamId) {
-        return https.get(`/team/teamplayer?id=${gamId}`)
+    getAllTeamsForGame(gameId) {
+        return https.get(`/team/teamplayer?id=${gameId}`)
     }
 }
 export default new TeamAndPlayers();

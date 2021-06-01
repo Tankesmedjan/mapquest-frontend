@@ -17,11 +17,13 @@ class MissionTimer extends Component {
     }
 
     tick() {
-         if (this.state.isRunning === true && document.getElementById("mission-timer").style.display === "block") {
-            this.setState({
-                missionTimer: (this.state.missionTimer + 1 / 100)
-            });
+        if (document.getElementById("mission-timer")) {
+            if (this.state.isRunning === true && document.getElementById("mission-timer").style.display === "block") {
+                this.setState({
+                    missionTimer: (this.state.missionTimer + 1 / 100)
+                });
 
+            }
         }
          if (this.state.isRunning === false) {
              this.stopTimerButton()
