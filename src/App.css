@@ -432,6 +432,10 @@ div .next-point {
   opacity: 1;
   transform: scale(1,1);
 }
+.player-box {
+  text-align: left;
+}
+
 
 .logo-img {
   bottom: 0;

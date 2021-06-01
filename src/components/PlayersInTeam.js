@@ -35,7 +35,6 @@ export class PlayersInTeam extends Component {
         } else {
             let data = {name: this.state.name, teamId: this.state.teamId}
             http.post(`/player`, data)
-            alert("Successfully registered!")
         }
     }
 
@@ -63,7 +62,7 @@ export class PlayersInTeam extends Component {
                 <div className="player-list">
                     {players && players.map((players, index) => (
                         <div key={index}>
-                            <div className="player-box"> <span className="h6">{players.name} <a href="#!" onClick={this.deletePlayer.bind(this, players.id)}><Icon.DashCircleFill color={'#FFFFFF'} /></a></span></div>
+                            <div className="player-box"> <span className="h6">{players.name} <a href="#!" onClick={this.deletePlayer.bind(this, players.id)}><Icon.DashCircleFill color={'#FFFFFF'}/></a></span></div>
                         </div>))}
                 </div>
                 <hr/>

@@ -48,6 +48,9 @@ export class ManageTeams extends Component {
     componentDidMount() {
         this.getTeamByGameID(1)
     }
+    componentDidUpdate() {
+        this.getTeamByGameID(1);
+    }
 
     render() {
         if (!isAuthenticated()) return null;
