@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import http from "../http-common";
-import FooterContent from "./FooterContent";
 import {isAuthenticated} from "../repositories/LoginAuth";
 import ManageTeamService from "../services/ManageTeamService";
 
@@ -43,7 +42,6 @@ export class PlayersInTeam extends Component {
     render() {
         isAuthenticated()
         const {players} = this.state
-        const insertFooter = FooterContent;
         return (
             <>
                 <form onSubmit={(e) => this.addPlayer(e)}>
@@ -53,7 +51,7 @@ export class PlayersInTeam extends Component {
                 <div className="player-list">
                     {players && players.map((players, index) => (
                         <div key={index}>
-                            <a className="player-box"> <h6 className="player-header">{players.name} </h6></a>
+                            <div className="player-box"> <h6 className="player-header">{players.name} </h6></div>
                         </div>))}
                 </div>
                 <hr/>

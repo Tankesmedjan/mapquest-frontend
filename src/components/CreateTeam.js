@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import http from "../http-common";
-import FooterContent from "./FooterContent";
 import {isAuthenticated} from "../repositories/LoginAuth";
 
 export class CreateTeam extends Component {
@@ -29,8 +28,7 @@ export class CreateTeam extends Component {
 
 
     render() {
-        isAuthenticated()
-        const insertFooter = FooterContent;
+        if (!isAuthenticated()) return null;
         return (
             <>
                     <form onSubmit={(e) => this.addTeam(e)}>
