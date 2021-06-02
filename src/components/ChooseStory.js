@@ -4,6 +4,7 @@ import * as Icon from "react-bootstrap-icons";
 import StoryService from "../services/StoryService";
 import {isAuthenticated} from "../repositories/LoginAuth";
 import FooterContent from "./FooterContent";
+import http from "../http-common";
 
 export class ChooseStory extends Component {
 
@@ -20,6 +21,13 @@ getAllStories() {
                 stories: response.data
             })
         })
+}
+addGameSession(e, storyId){
+    e.preventDefault()
+
+    let data = {storyId: storyId, userId: sessionStorage,
+    startLat: null, startLong: null, endLat: null, endLong: null}
+    http.post(`/game`, data)
 }
 
 componentDidMount() {
@@ -41,7 +49,7 @@ componentDidMount() {
                     <div key={index} className="story-box">
                         <h4 className="maps-header">{stories.storyName}</h4>
                         <h6 className="story-text">{stories.storyText}</h6>
-                        <p><button className="btn flashy-btn"><Icon.PlayFill /> Choose this story</button></p>
+                        <p> <button className="btn flashy-btn" onClick={(e)=>this.addGameSession(e, stories.id)}><Icon.PlayFill /> Choose this story</button></p>
                         <br/>
 
                     </div>
