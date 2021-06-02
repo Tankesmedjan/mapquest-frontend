@@ -100,6 +100,10 @@ button:hover {
   vert-align: bottom;
   bottom: 0;
 }
+.wrapper-admin-login {
+  height: 200px;
+  padding-top: calc(50% - 100px);
+}
 .container .wrapper-footer .skyline-image {
   position: absolute;
   left: 0;
@@ -578,19 +582,17 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 10000000;
+  background: rgba(0, 0, 0, 0.4);
 }
 .page-wrap {
-  padding-left: 200px;
-  text-align: right;
+  padding-left: 100px;
+  text-align: left;
 }
 .menu-item, .menu-item-small{
-  text-align: right;
+  text-align: left;
   font-family: 'Permanent Marker', cursive;
   font-size: 1.3em;
 }
-
 
 @keyframes App-logo-spin {
   from {

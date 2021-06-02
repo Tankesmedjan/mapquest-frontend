@@ -12,6 +12,7 @@ import CreateTeam from "./components/CreateTeam";
 import Scoreboard from "./components/Scoreboard";
 import HamburgerMenu from "./components/HamburgerMenu";
 import GameArea from "./components/GameArea";
+import AdminLogin from "./components/AdminLogin";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/createteam" component={CreateTeam} />
             <Route exact path="/scoreboard" component={Scoreboard} />
             <Route exact path="/gamearea" component={GameArea} />
+            <Route exact patch="/admin" component={AdminLogin} />
         </Switch>
         </BrowserRouter>
 
