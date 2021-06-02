@@ -10,12 +10,14 @@ import ChooseStory from "./components/ChooseStory";
 import ManageTeams from "./components/ManageTeams";
 import CreateTeam from "./components/CreateTeam";
 import Scoreboard from "./components/Scoreboard";
+import HamburgerMenu from "./components/HamburgerMenu";
 
 function App() {
   return (
     <div className="App">
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+        <HamburgerMenu />
         <BrowserRouter>
         <Switch>
             <Route exact path="/" component={LandingPage} />
