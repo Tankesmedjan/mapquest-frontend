@@ -5,7 +5,8 @@ import StoryService from "../services/StoryService";
 import {isAuthenticated} from "../repositories/LoginAuth";
 import FooterContent from "./FooterContent";
 import http from "../http-common";
-import Login from "./Login";
+import {Redirect} from "react-router-dom";
+
 
 export class ChooseStory extends Component {
 
@@ -13,7 +14,7 @@ constructor(props) {
     super(props)
     this.state = {
         stories: [],
-        user: []
+        redirect: false
     }
 }
 getAllStories() {
@@ -29,7 +30,8 @@ addGameSession(e, storyId){
 
     let data = {storyId: storyId, userId: sessionStorage.getItem('userid'),
     startLat: null, startLong: null, endLat: null, endLong: null}
-    http.post(`/game`, data)
+    http.post(`/game`, data);
+    this.setState({redirect: true})
 }
 
 componentDidMount() {
@@ -38,11 +40,11 @@ componentDidMount() {
 
     render() {
         isAuthenticated()
-        const {stories} = this.state
+        const {stories, redirect} = this.state
         const insertFooter = FooterContent
         return (
             <>
-
+                {redirect?(<Redirect push to="/gamearea"/>):null}
                 <h1 className="maps-header">MapQuest</h1>
                 <div className="container">
                 <br/>
@@ -51,7 +53,7 @@ componentDidMount() {
                     <div key={index} className="story-box">
                         <h4 className="maps-header">{stories.storyName}</h4>
                         <h6 className="story-text">{stories.storyText}</h6>
-                        <p> <button className="btn flashy-btn" onClick={(e)=>this.addGameSession(e, stories.id)}><Icon.PlayFill /> Choose this story</button></p>
+                        <p><button className="btn flashy-btn" onClick={(e)=>this.addGameSession(e, stories.id)}><Icon.PlayFill /> Choose this story</button></p>
                         <br/>
 
                     </div>

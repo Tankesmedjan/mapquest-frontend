@@ -11,6 +11,7 @@ import ManageTeams from "./components/ManageTeams";
 import CreateTeam from "./components/CreateTeam";
 import Scoreboard from "./components/Scoreboard";
 import HamburgerMenu from "./components/HamburgerMenu";
+import GameArea from "./components/GameArea";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route exact path="/manageteams" component={ManageTeams} />
             <Route exact path="/createteam" component={CreateTeam} />
             <Route exact path="/scoreboard" component={Scoreboard} />
+            <Route exact path="/gamearea" component={GameArea} />
         </Switch>
         </BrowserRouter>
 
