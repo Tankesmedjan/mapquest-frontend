@@ -5,9 +5,9 @@ export default function Teams() {
     return (
         <div className="wrapper-teams">
             {!availableTeams ? (
-                <>You have not created any teams yet, please create a new team.</>
+                <></>
             ) : (
-                <>Listing available teams<br/></>
+                <></>
             )}
         </div>
     )
