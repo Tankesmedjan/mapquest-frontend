@@ -5,13 +5,15 @@ import StoryService from "../services/StoryService";
 import {isAuthenticated} from "../repositories/LoginAuth";
 import FooterContent from "./FooterContent";
 import http from "../http-common";
+import Login from "./Login";
 
 export class ChooseStory extends Component {
 
 constructor(props) {
     super(props)
     this.state = {
-        stories: []
+        stories: [],
+        user: []
     }
 }
 getAllStories() {
@@ -25,7 +27,7 @@ getAllStories() {
 addGameSession(e, storyId){
     e.preventDefault()
 
-    let data = {storyId: storyId, userId: sessionStorage,
+    let data = {storyId: storyId, userId: sessionStorage.getItem('userid'),
     startLat: null, startLong: null, endLat: null, endLong: null}
     http.post(`/game`, data)
 }

@@ -3,13 +3,14 @@ import sha256 from "sha256";
 
 export function login (data) {
 
-    var msg = '';
+    let msg = '';
     http.post('/user/login',
-        {email: data.email, password: sha256(data.password) })
+        {email: data.email, password: sha256(data.password)})
         .then(response => {
-            if (response.data === true) {
+            if (response.data) {
                 sessionStorage.setItem('x-access-token', sha256(data))
                 sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 10)
+                sessionStorage.setItem('userid',  response.data)
                 window.location = '/dashboard'
             } else {
                 msg += 'Incorrect email or password.'
