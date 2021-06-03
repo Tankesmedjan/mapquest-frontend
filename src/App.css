@@ -74,7 +74,7 @@ button:hover {
 }
 
 .story-wrapper{
-  max-height: 650px;
+  max-height: 420px;
   overflow: scroll;
   overflow-x: hidden;
 
