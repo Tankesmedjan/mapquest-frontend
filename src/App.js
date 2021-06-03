@@ -14,10 +14,13 @@ import HamburgerMenu from "./components/HamburgerMenu";
 import GameArea from "./components/GameArea";
 import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
+import appInfo from '../package.json';
+import build from './metadata.json';
 
 function App() {
   return (
     <div className="App">
+      <title>MapQuest {appInfo.version}.{build.build} </title>
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
         <HamburgerMenu />
