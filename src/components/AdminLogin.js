@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
-import {adminLogin} from "../repositories/LoginAuth";
+import {adminLogin, isAdminAuth} from "../repositories/LoginAuth";
 
 class AdminLogin extends Component {
     constructor() {
         super();
-        this.state = { username: '', password: '' };
+        this.state = {username: '', password: '' };
     }
 
     handleInputChange = (event) =>
@@ -13,8 +13,8 @@ class AdminLogin extends Component {
 
     submitLogin = (event) => {
         event.preventDefault();
-        adminLogin(this.state)
-        console.log(this.state)
+        adminLogin(this.state);
+        isAdminAuth();
     }
 
     render() {

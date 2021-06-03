@@ -13,6 +13,7 @@ import Scoreboard from "./components/Scoreboard";
 import HamburgerMenu from "./components/HamburgerMenu";
 import GameArea from "./components/GameArea";
 import AdminLogin from "./components/AdminLogin";
+import AdminDashboard from "./components/AdminDashboard";
 
 function App() {
   return (
@@ -33,7 +34,10 @@ function App() {
             <Route exact path="/createteam" component={CreateTeam} />
             <Route exact path="/scoreboard" component={Scoreboard} />
             <Route exact path="/gamearea" component={GameArea} />
-            <Route exact patch="/admin" component={AdminLogin} />
+            <Route patch="/admin" component={AdminLogin}>
+                <Route exact patch="/admin/dashboard" component={AdminDashboard} />
+            </Route>
+
         </Switch>
         </BrowserRouter>
 
