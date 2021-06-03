@@ -37,9 +37,9 @@ function App() {
             <Route exact path="/createteam" component={CreateTeam} />
             <Route exact path="/scoreboard" component={Scoreboard} />
             <Route exact path="/gamearea" component={GameArea} />
-            <Route patch="/admin" component={AdminLogin}>
-                <Route exact patch="/admin/dashboard" component={AdminDashboard} />
-            </Route>
+            <Route exact path="/admin" component={AdminLogin} />
+            <Route exact path="/admin/dashboard" component={AdminDashboard} />
+
 
         </Switch>
         </BrowserRouter>

@@ -14,7 +14,6 @@ class AdminLogin extends Component {
     submitLogin = (event) => {
         event.preventDefault();
         adminLogin(this.state);
-        isAdminAuth();
     }
 
     render() {

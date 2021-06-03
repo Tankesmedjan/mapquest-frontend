@@ -24,9 +24,9 @@ export function adminLogin (data) {
         {username: data.username, password: sha256(data.password)})
         .then(r => {
             if (r.data) {
-                sessionStorage.setItem('x-access-token', sha256(data))
-                sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
-                window.location = '/admin/dashboard'
+                sessionStorage.setItem('xx-access-token', sha256(data))
+                sessionStorage.setItem('xx-access-token-expiration', Date.now() + 20 * 60 * 1000)
+                window.location = 'admin/dashboard'
             } else {
                 admmsg += 'Incorrect email or password.'
                 alert(admmsg)
@@ -52,12 +52,13 @@ export function isAdminAuth() {
             let allAdmins = r.data
             allAdmins.map((adminuser) => {
                 let currentAdmin = {username: adminuser.username, password: adminuser.password}
-                if (sessionStorage.getItem('x-access-token') === sha256(currentAdmin)) {
+                if (sessionStorage.getItem('xx-access-token') === sha256(currentAdmin)) {
                    userFound = true;
+                   return true;
                 }
             }
             )
-            if (!userFound) { window.location = '/admin' } else { return true;}
+            if (!userFound) { window.location = '/admin' }
 
         })
 }
