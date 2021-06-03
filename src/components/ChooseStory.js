@@ -42,7 +42,7 @@ export class ChooseStory extends Component {
 
         let data = {
             storyId: storyId, userId: sessionStorage.getItem('userid'),
-            startLat: null, startLong: null, endLat: null, endLong: null
+            lat: null, lng: null
         }
         http.post(`/game`, data);
         this.setState({redirect: true})
