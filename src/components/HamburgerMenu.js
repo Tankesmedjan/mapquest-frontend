@@ -17,8 +17,8 @@ class HamburgerMenu extends Component {
                 right>
                 <main id="page-wrap" className="page-wrap">
                 <p><a id="home" className="menu-item" href="/">Home</a></p>
-                <p><a id="about" className="menu-item" href="/about">Contact us</a></p>
-                <p><a id="contact" className="menu-item" href="/contact">Prices</a></p>
+                <p><a id="about" className="menu-item" href="/about">About</a></p>
+                <p><a id="contact" className="menu-item" href="/contact">Contact us</a></p>
                 <p><a onClick={ this.showSettings } className="menu-item" href="">How it works</a></p>
                 </main>
             </Menu>
