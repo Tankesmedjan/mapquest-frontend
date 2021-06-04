@@ -6,7 +6,6 @@ import MapPointers from "../services/MapPointers";
 import ManageTeamService from "../services/ManageTeamService";
 
 
-let generatedGameScores = 10;
 let progressArray = [];
 let winner = 0;
 
@@ -84,12 +83,13 @@ class Scoreboard extends Component {
 
                                 {
                                     gameProgress && gameProgress.map((progress, index) => (
+                                        // eslint-disable-next-line no-sequences
                                         progressArray[index] = {'teamid': progress.teamid, 'missionid': progress.missionid, 'time': progress.missionTime}, null
                                     ))
 
                                 }
                                 {
-                                    progressArray[0] != undefined && progressArray[1] != undefined ?
+                                    progressArray[0] !== undefined && progressArray[1] !== undefined ?
                                     progressArray[0].time < progressArray[1].time ? (winner = progressArray[0].teamid, null) : (winner = progressArray[1].teamid, null)
                                     : null}
 

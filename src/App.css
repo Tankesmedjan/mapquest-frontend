@@ -532,12 +532,18 @@ color: #FFFFFF;
   padding-left: 20px;
 }
 .draw-google-rectangle {
-  position: absolute;
-  height: 200px;
-  width: 150px;
+  display: none;
+  position: relative;
+  height: 1px;
+  width: 1px;
   border: 1px solid black;
-  z-index: 1000;
+  margin-left: -75px;
+  margin-top: -100px;
+  padding-top: 90px;
+  z-index: 0;
   left: 10px;
+  filter: alpha(opacity=30);
+  opacity: 0.3;
 }
 /* Position and sizing of burger button */
 .bm-burger-button {
