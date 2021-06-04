@@ -7,6 +7,8 @@ import ManageTeamService from "../services/ManageTeamService";
 
 
 let generatedGameScores = 10;
+let progressArray = [];
+let winner = 0;
 
 class Scoreboard extends Component {
 
@@ -59,7 +61,6 @@ class Scoreboard extends Component {
     render() {
         const insertFooter = FooterContent
         const {gameStatus, gameMissions, gameTeams, gameProgress} = this.state
-        let generatedGameScore = generatedGameScores
         return (
             <div className="container">
                 <div className="wrapper-main">
@@ -79,23 +80,34 @@ class Scoreboard extends Component {
                                         <td key={team.teamName} className="scoreboard-teams">{team.teamName}</td>
                                     ))}
 
-                                <td width="50">&nbsp;</td></tr><tr><td width="50">&nbsp;</td>
+                                <td width="50">&nbsp;</td></tr>
 
-                    {
-                        gameProgress && gameProgress.map((progress, index) => (
+                                {
+                                    gameProgress && gameProgress.map((progress, index) => (
+                                        progressArray[index] = {'teamid': progress.teamid, 'missionid': progress.missionid, 'time': progress.missionTime}, null
+                                    ))
+
+                                }
+                                {
+                                    progressArray[0] != undefined && progressArray[1] != undefined ?
+                                    progressArray[0].time < progressArray[1].time ? (winner = progressArray[0].teamid, null) : (winner = progressArray[1].teamid, null)
+                                    : null}
+
+                                {
+                                    gameProgress && gameProgress.map((progress, index) => (
+                                        <tr><td width="50">&nbsp;</td>
 
 
-                        gameMissions
-                            .filter(mission => mission.missionId.id === progress.missionid)
-                            .map(filteredMission => (
-                                <td key={index}> {filteredMission.missionId.winnerScore} </td>
-                        ))
+                                {
+                                    gameMissions
+                                        .filter(mission => mission.missionId.id === progress.missionid)
+                                        .map(filteredMission => (
+                                            <td key={index} className={"scoreboard-scores-even"}>{ (winner === progress.teamid ? ( filteredMission.missionId.winnerScore ) : ( <> 0 </> )) }</td>
+                                    ))}
 
-                        ))
-                    }
-
-                                <td width="50">&nbsp;</td>
-                            </tr>
+                                         <td width="50">&nbsp;</td></tr>
+                                    ))
+                                }
                         </tbody>
                     </table>
 

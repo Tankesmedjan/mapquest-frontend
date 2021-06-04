@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapPointers from "../services/MapPointers";
-import TeamAndPlayers from "../services/TeamAndPlayers";
 import PropTypes from "prop-types";
 import MissionTimer from "./MissionTimer";
 import * as Icon from "react-bootstrap-icons";
 import GameProgress from "../services/GameProgress";
 import MapWelcomeScreen from "./MapWelcomeScreen";
+import ManageTeamService from "../services/ManageTeamService";
 
 const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img src="mission_done_pointer.png" alt="mission done" width="30" /></div>
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
@@ -101,7 +101,7 @@ class GoogleMap extends Component {
             })
     }
     loadTeamAndPlayers(teamId) {
-        TeamAndPlayers.getAllPlayersForTeam(teamId)
+        ManageTeamService.getPlayersByTeamID(teamId)
             .then(response => {
                 this.setState( {
                     teamAndPlayers: response.data
