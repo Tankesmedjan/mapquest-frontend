@@ -72,9 +72,8 @@ if (document.getElementById('chosen-area')) {
                                 styles: [{stylers: [{'saturation': 80}, {'gamma': 0.8}]}]
                             }}
                         >
-                            {chosenLat > 10 ? (
-                                    <Point lat={chosenLat} lng={chosenLng}></Point>
-                                ): null}
+                            <Point lat={chosenLat} lng={chosenLng}/>
+
                         </GoogleMapReact>
                 </div>
             </>
