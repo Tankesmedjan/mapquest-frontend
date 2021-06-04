@@ -1,6 +1,5 @@
 import http from "../http-common";
 import sha256 from "sha256";
-import async from "async";
 
 export function login (data) {
     let msg = '';

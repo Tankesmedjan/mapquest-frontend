@@ -1,13 +1,17 @@
 import React, {Component} from "react";
 import FooterContent from "./FooterContent";
-import HasStartedGame, {hasStartedGame} from "../services/GameInfo";
 import GameInfo from "../services/GameInfo";
 import GameProgress from "../services/GameProgress";
 import TeamAndPlayers from "../services/TeamAndPlayers";
 import MapPointers from "../services/MapPointers";
 
+let htmlRender = ""
+let gameMissions = [];
+let gameProgress = [];
+let generatedGameScores = 10;
 
 class Scoreboard extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -31,9 +35,7 @@ class Scoreboard extends Component {
     getGameScore(gameId) {
         GameProgress.getSingleGameProgress(gameId)
             .then(resp => {
-                this.setState({
-                    gameProgress: resp.data
-                })
+                gameProgress.push(resp.data)
             })
         TeamAndPlayers.getAllTeamsForGame(gameId)
             .then(resp => {
@@ -43,43 +45,28 @@ class Scoreboard extends Component {
             })
         MapPointers.getAllPointersForGame(gameId)
             .then(resp => {
-                this.setState({
-                    gameMissions: resp.data
-                })
+                gameMissions.push(resp.data)
             })
     }
 
     mapGameScore() {
-        let htmlRender = ''
-        this.state.gameMissions.map((mission) => {
-                let currentMissionId = mission.missionId.id
-                let currentMissionName = mission.missionId.missionName
-                let currentMissionScore =mission.missionId.winnerScore
-                this.state.gameProgress.map((progress) => {
-                    console.log(progress.missionid)
-                        if (progress.missionid === currentMissionId) {
-                            htmlRender += currentMissionName + " " + currentMissionScore
-                            console.log(htmlRender)
-                        }
-                        this.setState({
-                            htmlRender: htmlRender
-                        })
-                    }
-                )
+        let genGameScore = generatedGameScores
+        gameMissions.filter(mission => mission.id = 1).map(filteredMission => (
+           genGameScore += filteredMission.missionId.winnerScore
+        ))
+        console.log(genGameScore)
 
-            }
-        )
     }
 
     componentDidMount() {
-        this.getGameStatus(sessionStorage.getItem('userid'))
-        this.getGameScore(1)
+        this.getGameStatus(sessionStorage.getItem('userid'));
+        this.getGameScore(1);
         this.mapGameScore()
     }
 
     render() {
         const insertFooter = FooterContent
-        const {gameStatus, htmlRender} = this.state
+        const {gameStatus} = this.state
         return (
             <div className="container">
                 <div className="wrapper-main">
