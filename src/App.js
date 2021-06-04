@@ -17,6 +17,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import appInfo from '../package.json';
 import build from './metadata.json';
 import Contact from "./components/Contact";
+import {About} from "./components/About";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route exact path="/admin" component={AdminLogin} />
             <Route exact path="/admin/dashboard" component={AdminDashboard} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/About" component={About} />
 
 
         </Switch>
