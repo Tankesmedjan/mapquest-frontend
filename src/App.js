@@ -19,6 +19,7 @@ import build from './metadata.json';
 import Contact from "./components/Contact";
 import AdminStories from "./components/AdminStories";
 
+import {About} from "./components/About";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route exact path="/admin/stories" component={AdminStories} />
             <Route exact path="/admin/mission" component={AdminDashboard} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/About" component={About} />
 
 
         </Switch>

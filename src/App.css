@@ -521,6 +521,14 @@ color: #FFFFFF;
   text-align: left;
   padding-left: 20px;
 }
+.draw-google-rectangle {
+  position: absolute;
+  height: 200px;
+  width: 150px;
+  border: 1px solid black;
+  z-index: 1000;
+  left: 10px;
+}
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -601,7 +609,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-family: 'Permanent Marker', cursive;
   font-size: 1.3em;
 }
-
+.scoreboard-teams {
+  font-size: 16px;
+  font-weight: bold;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

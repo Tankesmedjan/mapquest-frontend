@@ -2,12 +2,10 @@ import React, {Component} from "react";
 import FooterContent from "./FooterContent";
 import GameInfo from "../services/GameInfo";
 import GameProgress from "../services/GameProgress";
-import TeamAndPlayers from "../services/TeamAndPlayers";
 import MapPointers from "../services/MapPointers";
+import ManageTeamService from "../services/ManageTeamService";
 
-let htmlRender = ""
-let gameMissions = [];
-let gameProgress = [];
+
 let generatedGameScores = 10;
 
 class Scoreboard extends Component {
@@ -35,9 +33,11 @@ class Scoreboard extends Component {
     getGameScore(gameId) {
         GameProgress.getSingleGameProgress(gameId)
             .then(resp => {
-                gameProgress.push(resp.data)
+                this.setState({
+                    gameProgress: resp.data
+                })
             })
-        TeamAndPlayers.getAllTeamsForGame(gameId)
+        ManageTeamService.getTeamByGameID(gameId)
             .then(resp => {
                 this.setState({
                     gameTeams: resp.data
@@ -45,38 +45,60 @@ class Scoreboard extends Component {
             })
         MapPointers.getAllPointersForGame(gameId)
             .then(resp => {
-                gameMissions.push(resp.data)
+                this.setState({
+                    gameMissions: resp.data
+                })
             })
-    }
-
-    mapGameScore() {
-        let genGameScore = generatedGameScores
-        gameMissions.filter(mission => mission.id = 1).map(filteredMission => (
-           genGameScore += filteredMission.missionId.winnerScore
-        ))
-        console.log(genGameScore)
-
     }
 
     componentDidMount() {
         this.getGameStatus(sessionStorage.getItem('userid'));
         this.getGameScore(1);
-        this.mapGameScore()
     }
 
     render() {
         const insertFooter = FooterContent
-        const {gameStatus} = this.state
+        const {gameStatus, gameMissions, gameTeams, gameProgress} = this.state
+        let generatedGameScore = generatedGameScores
         return (
             <div className="container">
                 <div className="wrapper-main">
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Scoreboard</h2><br/>
                     {gameStatus && gameStatus.map((status, index) => (
-                        <h5 key={index}>{status.story.storyName}</h5>
+                        <h5 key={index}>Story: {status.story.storyName}</h5>
                     ))}
                     {gameStatus.length <= 0 ? (
                         <div>You have not selected a story.</div>
-                    ) : htmlRender}
+                    ) : null}
+                    <br/>
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <td width="50">&nbsp;</td>
+                                    {gameTeams && gameTeams.map((team, index) => (
+                                        <td key={team.teamName} className="scoreboard-teams">{team.teamName}</td>
+                                    ))}
+
+                                <td width="50">&nbsp;</td></tr><tr><td width="50">&nbsp;</td>
+
+                    {
+                        gameProgress && gameProgress.map((progress, index) => (
+
+
+                        gameMissions
+                            .filter(mission => mission.missionId.id === progress.missionid)
+                            .map(filteredMission => (
+                                <td key={index}> {filteredMission.missionId.winnerScore} </td>
+                        ))
+
+                        ))
+                    }
+
+                                <td width="50">&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
                 {insertFooter}
             </div>
