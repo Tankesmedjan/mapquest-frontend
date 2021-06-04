@@ -15,7 +15,6 @@ export class GameArea extends Component {
         super(props)
         this.state = {
             game: []
-
         }
     }
 
@@ -30,22 +29,33 @@ export class GameArea extends Component {
     }
 
     chooseGameArea = (event) =>{
+        this.setState({
+            chosenLat: event.lat,
+            chosenLng: event.lng
+        })
+        this.setState({
+            pagex: event.lat,
+            pagey: event.pageY
+        })
+
             let data = {lat: event.lat, lng: event.lng}
             http.put(`/game/edit?id=${this.state.game[0].id}`, data);
     }
+
     componentDidMount() {
         this.loadGameForUser()
     }
 
     render() {
-        const {chosenLat, chosenLang} = this.state
+        let {chosenLat, chosenLang, pagex, pagey} = this.state
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
 
                     <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
+                        <div className="draw-google-rectangle" style={{paddingLeft: '100px'}}></div>
                         <GoogleMapReact
-                            onClick={this.chooseGameArea.bind(MouseEvent.pageX)}
+                            onClick={this.chooseGameArea.bind(MouseEvent)}
                             bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API_KEY}}
                             defaultCenter={this.props.center}
                             defaultZoom={this.props.zoom}
