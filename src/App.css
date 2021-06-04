@@ -325,6 +325,14 @@ div .next-point {
   margin-bottom: 20px;
   animation: ease-in-out 2s;
 }
+.create-story {
+  height: auto;
+  display: none;
+  margin-bottom: 20px;
+  animation: ease-in-out 2s;
+  text-align: left;
+}
+
 .input-text {
   width: 300px;
   font-size: 14px;

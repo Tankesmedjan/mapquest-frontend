@@ -17,6 +17,8 @@ import AdminDashboard from "./components/AdminDashboard";
 import appInfo from '../package.json';
 import build from './metadata.json';
 import Contact from "./components/Contact";
+import AdminStories from "./components/AdminStories";
+
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
             <Route exact path="/gamearea" component={GameArea} />
             <Route exact path="/admin" component={AdminLogin} />
             <Route exact path="/admin/dashboard" component={AdminDashboard} />
+            <Route exact path="/admin/stories" component={AdminStories} />
+            <Route exact path="/admin/mission" component={AdminDashboard} />
             <Route exact path="/contact" component={Contact} />
 
 
