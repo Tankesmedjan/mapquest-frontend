@@ -30,6 +30,7 @@ export class Contact extends Component {
             <div className="container">
                 <div className="wrapper-main">
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Contact us</h2>
+                    <hr/>
                     <br/>
                     <b><h5>We'd love some feedback!</h5>
                         MapQuest likes to create and develop with it's customers.<br/>
