@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import StoryService from "../services/StoryService";
 import FooterContent from "./FooterContent";
-import http from "../http-common";
 import CreateStory from "./CreateStory";
+import EditStory from "./EditStory";
 
 
 
@@ -32,6 +32,19 @@ export class AdminStories extends Component {
       }
     }
 
+    showEditStoryWrapper = (index) =>{
+        if (document.getElementById("ed-box-0"))
+        {
+            let elems = document.getElementsByClassName('edit-story-box')
+            for(let i = 0; i < elems.length; i++) {
+                elems[i].style.display = 'none';
+            }
+
+            document.getElementById(`ed-box-${index}`).style.display="block"
+        }
+    }
+
+
     componentDidMount() {
         this.getAllStories()
     }
@@ -58,10 +71,14 @@ export class AdminStories extends Component {
                                             <h6 className="story-text">{stories.storyText}</h6>
                                             <p>
                                                 <button className="btn flashy-btn"
-                                                        onClick={(e) => this.addGameSession(e, stories.id)}>
+                                                        onClick={(e)=>this.showEditStoryWrapper(index)} className="btn flashy-btn">
                                                     <Icon.Wrench/> Edit This Story
                                                 </button>
                                             </p>
+                                            <div className="edit-story-box" id={`ed-box-${index}`}>
+                                                <EditStory
+                                                storyyId={stories.id}/>
+                                            </div>
                                             <br/>
                                         </div>
                                     )

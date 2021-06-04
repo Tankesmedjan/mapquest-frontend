@@ -20,6 +20,7 @@ import Contact from "./components/Contact";
 import AdminStories from "./components/AdminStories";
 
 import {About} from "./components/About";
+import {Information} from "./components/Information";
 
 function App() {
   return (
@@ -46,8 +47,8 @@ function App() {
             <Route exact path="/admin/stories" component={AdminStories} />
             <Route exact path="/admin/mission" component={AdminDashboard} />
             <Route exact path="/contact" component={Contact} />
-            <Route exact path="/About" component={About} />
-
+            <Route exact path="/about" component={About} />
+            <Route exact path="/information" component={Information} />
 
         </Switch>
         </BrowserRouter>

@@ -318,6 +318,10 @@ div .next-point {
 .team-player-box {
   display: none;
 }
+.edit-story-box {
+  display: none;
+  text-align: left;
+}
 
 .create-team {
   height: auto;
@@ -332,7 +336,13 @@ div .next-point {
   animation: ease-in-out 2s;
   text-align: left;
 }
-
+.edit-story {
+  height: auto;
+  display: none;
+  margin-bottom: 20px;
+  animation: ease-in-out 2s;
+  text-align: left;
+}
 .input-text {
   width: 300px;
   font-size: 14px;

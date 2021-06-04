@@ -19,7 +19,7 @@ class HamburgerMenu extends Component {
                 <p><a id="home" className="menu-item" href="/">Home</a></p>
                 <p><a id="about" className="menu-item" href="/about">About</a></p>
                 <p><a id="contact" className="menu-item" href="/contact">Contact us</a></p>
-                <p><a onClick={ this.showSettings } className="menu-item" href="">How it works</a></p>
+                <p><a id="info" className="menu-item" href="/information">How it works</a></p>
                 </main>
             </Menu>
             </div>
