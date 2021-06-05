@@ -545,6 +545,21 @@ color: #FFFFFF;
   filter: alpha(opacity=30);
   opacity: 0.3;
 }
+.confirm-area-selection {
+  top: 100px;
+  left: calc(50% - 170px);
+  background: rgba(0,0,0, 0.6);
+  border-radius: 10px;
+  padding: 10px;
+  width: 340px;
+  position: absolute;
+  display: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1001;
+}
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;

@@ -8,12 +8,15 @@ import StoryService from "../services/StoryService";
 
 const Point = () => <div className="draw-google-rectangle" id="chosen-area" style={{backgroundImage: "url('images/stripe_bg.png')"}}><img src="mission_done_pointer.png" alt="pointer" width="30"/> </div>
 let GameId = 0;
+let mapData = "";
 export class GameArea extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            game: []
+            game: [],
+            chosenLat: 10.00,
+            chosenLng: 10.00
         }
     }
 
@@ -32,19 +35,21 @@ export class GameArea extends Component {
             chosenLat: event.lat,
             chosenLng: event.lng
         })
-        this.setState({
-            pagex: event.lat,
-            pagey: event.pageY
-        })
-if (document.getElementById('chosen-area')) {
-    document.getElementById('chosen-area').style.display = 'block';
-    document.getElementById('chosen-area').style.zIndex = '1000';
-    document.getElementById('chosen-area').style.width = '150px';
-    document.getElementById('chosen-area').style.height = '200px';
-}
-            let data = {lat: event.lat, lng: event.lng}
-            http.put(`/game/edit?id=${this.state.game[0].id}`, data);
+        if (document.getElementById('chosen-area')) {
+            document.getElementById('chosen-area').style.display = 'block';
+            document.getElementById('chosen-area').style.zIndex = '1000';
+            document.getElementById('chosen-area').style.width = '150px';
+            document.getElementById('chosen-area').style.height = '200px';
+        }
+        if (document.getElementById('confirmation')) {
+            document.getElementById('confirmation').style.display = 'block';
+        }
+        let data = {lat: event.lat, lng: event.lng}
+        http.put(`/game/edit?id=${this.state.game[0].id}`, data);
+    }
 
+    confirmGameArea() {
+        window.location = '/dashboard';
     }
 
     componentDidMount() {
@@ -56,12 +61,15 @@ if (document.getElementById('chosen-area')) {
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
-
+                    <div className="confirm-area-selection" id="confirmation">
+                        <p>Are you happy with the selected game area?</p>
+                        <p><a href="#!" onClick={this.confirmGameArea} className="btn flashy-btn"> Yes </a></p>
+                    </div>
                     <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
                         <GoogleMapReact
                             onClick={this.chooseGameArea.bind(MouseEvent)}
                             bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API_KEY}}
-                            defaultCenter={chosenLat>0? ({lat: chosenLat, lng: chosenLng}):(this.props.center)}
+                            defaultCenter={this.props.center}
                             defaultZoom={this.props.zoom}
                             yesIWantToUseGoogleMapApiInternals
                             options={{
