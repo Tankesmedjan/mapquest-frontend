@@ -25,7 +25,7 @@ class GoogleMap extends Component {
             mapPointers: [],
             teamAndPlayers: {},
             gameId: 1,
-            teamId: 8,
+            teamId: 1,
             missionId: 0,
             gameProgress: []
         }
@@ -126,7 +126,7 @@ class GoogleMap extends Component {
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
-                <MapWelcomeScreen/>
+                <MapWelcomeScreen game={gameId} team={teamId}/>
                 <div className="themissionbox" id="missionboxes">
                     {mapPointers && mapPointers.map((pointer, index) => (
                             <div key={index} className="mission-box" id={`mission-box-${index}`}>

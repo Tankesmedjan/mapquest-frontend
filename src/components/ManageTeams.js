@@ -16,12 +16,13 @@ export class ManageTeams extends Component {
         super(props)
         this.state = {
             teams: [],
-            players: []
+            players: [],
+            gameid: 1
         }
     }
 
     getTeamByGameID(gameId) {
-    ManageTeamService.getTeamByGameID(1)
+    ManageTeamService.getTeamByGameID(gameId)
         .then(response => {
            this.setState( {
                teams: response.data
@@ -52,10 +53,7 @@ export class ManageTeams extends Component {
     };
 
     componentDidMount() {
-        this.getTeamByGameID(1)
-    }
-    componentDidUpdate() {
-        this.getTeamByGameID(1);
+        this.getTeamByGameID(this.state.gameid)
     }
 
     render() {
