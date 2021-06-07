@@ -18,6 +18,7 @@ import appInfo from '../package.json';
 import build from './metadata.json';
 import Contact from "./components/Contact";
 import AdminStories from "./components/AdminStories";
+import AdminMission from "./components/AdminMission";
 
 import {About} from "./components/About";
 import {Information} from "./components/Information";
@@ -45,7 +46,7 @@ function App() {
             <Route exact path="/admin" component={AdminLogin} />
             <Route exact path="/admin/dashboard" component={AdminDashboard} />
             <Route exact path="/admin/stories" component={AdminStories} />
-            <Route exact path="/admin/mission" component={AdminDashboard} />
+            <Route exact path="/admin/mission" component={AdminMission} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route exact path="/information" component={Information} />
