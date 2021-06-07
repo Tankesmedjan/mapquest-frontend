@@ -322,7 +322,10 @@ div .next-point {
   display: none;
   text-align: left;
 }
-
+.edit-mission-box {
+  display: none;
+  text-align: left;
+}
 .create-team {
   height: auto;
   display: none;

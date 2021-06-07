@@ -7,10 +7,7 @@ import MissionService from "../services/MissionService"
 import http from "../http-common";
 import CreateMission from "./CreateMission";
 
-
-
 export class AdminMission extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -62,10 +59,10 @@ export class AdminMission extends Component {
 
                 <div className="container">
                     <div className="wrapper-main">
-                        <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Choose Story</h2>
+                        <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Choose Mission</h2>
                         <br/>
                         <div className="story-wrapper">
-                            <p><button onClick={this.showCreateMissionWrapper} className="btn flashy-btn"> <Icon.Plus/> Create a New Mission</button></p>
+
                             <div className="create-story" id="create-story-wrapper">
                                 <CreateMission/>
                             </div>
@@ -81,7 +78,7 @@ export class AdminMission extends Component {
                                             </button>
                                         </p>
                                         <div className="edit-story-box" id={`ed-box-${index}`}>
-                                            <button type="submit" className="btn flashy-btn-delete" onClick={this.deleteMission.bind(this, missions.id)}><Icon.DashCircleFill/> Delete This Story</button>
+                                            <button type="submit" className="btn flashy-btn-delete" onClick={this.deleteMission.bind(this, missions.id)}><Icon.DashCircleFill/> Delete This Mission</button>
                                             <EditMission
                                                 missionnId={missions.id}
                                                 missionName={missions.missionName}
