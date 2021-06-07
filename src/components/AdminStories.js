@@ -5,6 +5,7 @@ import StoryService from "../services/StoryService";
 import FooterContent from "./FooterContent";
 import CreateStory from "./CreateStory";
 import EditStory from "./EditStory";
+import http from "../http-common";
 
 
 
@@ -43,6 +44,9 @@ export class AdminStories extends Component {
             document.getElementById(`ed-box-${index}`).style.display="block"
         }
     }
+    deleteStory = (storyId) =>{
+        http.delete(`/story/delete?id=${storyId}`)
+    }
 
 
     componentDidMount() {
@@ -76,8 +80,11 @@ export class AdminStories extends Component {
                                                 </button>
                                             </p>
                                             <div className="edit-story-box" id={`ed-box-${index}`}>
+                                                <button type="submit" className="btn flashy-btn-delete" onClick={this.deleteStory.bind(this, stories.id)}><Icon.DashCircleFill/> Delete This Story</button>
                                                 <EditStory
-                                                storyyId={stories.id}/>
+                                                storyyId={stories.id}
+                                                storyName={stories.storyName}
+                                                storyText={stories.storyText}/>
                                             </div>
                                             <br/>
                                         </div>

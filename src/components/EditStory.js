@@ -8,7 +8,8 @@ export class EditStory extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {storyName: '', storyText: '', storyId: this.props.storyyId};
+        this.state = {storyName: '', storyText: '', storyId: this.props.storyyId,
+        };
     }
 
     handleInputChange = (event) =>
@@ -18,9 +19,11 @@ export class EditStory extends Component {
         e.preventDefault()
             let data = {storyName: this.state.storyName, storyText: this.state.storyText}
             http.put(`/story/edit?id=${this.state.storyId}`, data)
-            alert("Successfully registered!")
+            alert("Successfully updated this Story!")
 
     }
+
+
 
     render() {
         return (
@@ -29,7 +32,7 @@ export class EditStory extends Component {
                 <form onSubmit={(e) => this.editStory(e)}>
                     {}
                     <input type="text" placeholder="Enter Story Name" className="input-text" name="storyName" onChange={this.handleInputChange}/>
-                    <input type="text" placeholder="Enter The Story" className="input-text" name="storyText" onChange={this.handleInputChange}/>
+                    <textarea placeholder="Enter The Story" className="input-text" name="storyText" onChange={this.handleInputChange}/>
                     <button type="submit" className="btn "><Icon.PlusCircleFill /> Edit Story</button>
                 </form>
                 <hr/>
