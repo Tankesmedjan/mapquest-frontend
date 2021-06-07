@@ -9,6 +9,7 @@ export class EditMission extends Component {
     constructor(props) {
         super(props);
         this.state = {missionName: '', missionDescription: '', missionId: this.props.missionnId,
+            shortDescription: ''
         };
     }
 
@@ -17,7 +18,7 @@ export class EditMission extends Component {
 
     editMission(e) {
         e.preventDefault()
-        let data = {storyName: this.state.missionName, storyDescription: this.state.description}
+        let data = {missionName: this.state.missionName, missionDescription: this.state.missionDescription, shortDescription: this.state.shortDescription}
         http.put(`/mission/edit?id=${this.state.missionId}`, data)
         alert("Successfully updated this mission!")
 

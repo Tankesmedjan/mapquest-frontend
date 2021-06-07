@@ -38,10 +38,19 @@ export class Contact extends Component {
                     <br/>
                     <br/>
                     <form onSubmit={(e) => this.addFeedback(e)}>
-                        <input type="text" placeholder="Your Name" className="input-text" name="fullName" onChange={this.handleInputChange}/>
-                        <input type="text" placeholder="Email" className="input-text" name="email" onChange={this.handleInputChange}/>
-                        <input type="text" placeholder="Message" className="input-text" name="message" onChange={this.handleInputChange}/>
+                        <div className="form-group">
+                        <input type="text" placeholder="Your Name" className="input-contact-text" name="fullName" onChange={this.handleInputChange}/>
+                        </div>
+                        <br/>
+                        <div className="form-group">
+                        <input type="text" placeholder="Email" className="input-contact-text" name="email" onChange={this.handleInputChange}/>
+                        </div>
+                        <br/>
+                        <div className="form-group">
+                        <textarea placeholder="Message" className="input-message-text" name="message" onChange={this.handleInputChange}/>
+                        </div>
                     <p>
+                        <br/>
                         <button className="btn flashy-btn"><Icon.Envelope/> Submit</button>
                     </p></form>
                 </div>
