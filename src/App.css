@@ -318,6 +318,10 @@ div .next-point {
 .team-player-box {
   display: none;
 }
+.create-qr-box {
+  display: none;
+  padding-bottom: 25px;
+}
 .edit-story-box {
   display: none;
   text-align: left;

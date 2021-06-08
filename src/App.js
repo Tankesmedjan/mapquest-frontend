@@ -22,6 +22,7 @@ import AdminMission from "./components/AdminMission";
 
 import {About} from "./components/About";
 import {Information} from "./components/Information";
+import {GenerateQR} from "./components/GenerateQR";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route exact path="/information" component={Information} />
+            <Route exact path="/qrcode" component={GenerateQR} />
 
         </Switch>
         </BrowserRouter>
