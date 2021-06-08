@@ -124,11 +124,21 @@ class GoogleMap extends Component {
     render() {
         const {mapPointers, gameProgress, timer, gameId, teamId, missionId} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
+        let doneMissions = []
+        let doneMissionPoints = []
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
                 <MapWelcomeScreen game={gameId} team={teamId}/>
                 <div className="themissionbox" id="missionboxes">
+
+                    {gameProgress.map((progress) => (
+                        doneMissions.push(progress.missionid),
+                        doneMissionPoints[progress.missionid] = progress.missionTime
+                        )
+                        )
+                    }
+
                     {mapPointers && mapPointers.map((pointer, index) => (
                             <div key={index} className="mission-box" id={`mission-box-${pointer.missionId.id}`}>
                                 <MissionBox
@@ -138,11 +148,13 @@ class GoogleMap extends Component {
                                 />
                                 <div className="mission-buttons" id="start-mission-btn-box">
                                     <p><a href="#!" onClick={this.hideMissionBoxes} className="start-mission-btn"> <Icon.Geo /> Back to Map </a></p>
-                                    {lats <= (pointer.lat + 0.00003) && lats >= (pointer.lat -0.00003) && lngs <= (pointer.lng + 0.00003) && lngs >= (pointer.lng - 0.00003) ? (
+                                    {doneMissions.includes(pointer.missionId.id) ? (<><br/><h6>This mission is already completed</h6>Your team finished the mission in: {doneMissionPoints[pointer.missionId.id]}s. Good Job!<br/>Please move on to the next one!</>) : (
+                                    lats <= (pointer.lat + 0.00003) && lats >= (pointer.lat -0.00003) && lngs <= (pointer.lng + 0.00003) && lngs >= (pointer.lng - 0.00003) ? (
                                             <p><a href="#!" onClick={(event) => this.showMissionTimer(pointer.missionId.id)} className="start-mission-btn"> <Icon.Stopwatch /> Start mission timer & Go! </a></p>
                                         ) : (
                                             <p>You need to get closer to this pin to start the mission!</p>
                                         )
+                                    )
                                     }
                                 </div>
                             </div>
