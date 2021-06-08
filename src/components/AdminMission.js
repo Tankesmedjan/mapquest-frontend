@@ -6,12 +6,14 @@ import EditMission from "./EditMission";
 import MissionService from "../services/MissionService"
 import http from "../http-common";
 import CreateMission from "./CreateMission";
+import StoryService from "../services/StoryService";
 
 export class AdminMission extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            missions: []
+            missions: [],
+            stories: []
         }
     }
 
@@ -20,6 +22,15 @@ export class AdminMission extends Component {
             .then(response => {
                 this.setState({
                     missions: response.data
+                })
+            })
+    }
+
+    getAllStories() {
+        StoryService.getAllStories()
+            .then(response => {
+                this.setState( {
+                    stories: response.data
                 })
             })
     }
@@ -43,6 +54,7 @@ export class AdminMission extends Component {
     }
     deleteMission = (missionId) =>{
         http.delete(`/mission/delete?id=${missionId}`)
+        alert("Mission deleted.")
     }
 
 
@@ -56,35 +68,36 @@ export class AdminMission extends Component {
         const insertFooter = FooterContent
         return (
             <>
-
                 <div className="container">
                     <div className="wrapper-main">
                         <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Choose Mission</h2>
                         <br/>
                         <div className="story-wrapper">
-
                             <div className="create-story" id="create-story-wrapper">
                                 <CreateMission/>
                             </div>
                             {missions && missions.map((missions, index) => (
                                     <div key={index} className="story-box">
+                                        <hr/>
                                         <h4 className="maps-header">{missions.missionName}</h4>
                                         <h5 className="story-text">{missions.shortDescription}</h5>
                                         <h6 className="story-text">{missions.missionDescription}</h6>
                                         <p>
                                             <button className="btn flashy-btn"
-                                                    onClick={(e)=>this.showEditMissionWrapper(index)} className="btn flashy-btn">
+                                                    onClick={(e)=>this.showEditMissionWrapper(index)}>
                                                 <Icon.Wrench/> Edit This Mission
                                             </button>
                                         </p>
                                         <div className="edit-story-box" id={`ed-box-${index}`}>
-                                            <button type="submit" className="btn flashy-btn-delete" onClick={this.deleteMission.bind(this, missions.id)}><Icon.DashCircleFill/> Delete This Mission</button>
                                             <EditMission
                                                 missionnId={missions.id}
                                                 missionName={missions.missionName}
-                                                missionDescription={missions.missionDescription}/>
+                                                missionDescription={missions.missionDescription}
+                                                />
                                         </div>
-                                        <br/>
+                                        <button type="submit" className="btn flashy-btn-delete"  onClick={this.deleteMission.bind(this, missions.id)}>
+                                            <Icon.DashCircleFill/> Delete This Mission
+                                        </button>
                                     </div>
                                 )
                             )

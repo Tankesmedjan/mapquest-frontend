@@ -87,8 +87,7 @@ export class AdminStories extends Component {
                                         <h6 className="story-text">{stories.storyText}</h6>
                                         <p>
                                             <button className="btn flashy-btn"
-                                                    onClick={(e) => this.showEditStoryWrapper(index)}
-                                                    className="btn flashy-btn">
+                                                    onClick={(e) => this.showEditStoryWrapper(index)}>
                                                 <Icon.Wrench/> Edit This Story
                                             </button>
                                         </p>
