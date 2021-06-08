@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import FooterContent from "./FooterContent";
 import ManageTeamService from "../services/ManageTeamService";
 import QRCode from "react-qr-code";
+import * as Icon from "react-bootstrap-icons";
+import BackButton from "./BackButton";
 
 
 export class GenerateQR extends Component {
@@ -41,10 +43,10 @@ export class GenerateQR extends Component {
         const {teams} = this.state
         return (
             <div className="container">
-                <div className="wrapper-main">
+                <div className="wrapper-main"><BackButton/>
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Generate QR</h2>
-                    <br/>
-                    <div className="team-list">
+                    <p></p>
+                    <div>
                         {teams && teams.map((teams, index) => (
                             <div key={index}>
                                 <p>
@@ -52,7 +54,8 @@ export class GenerateQR extends Component {
                                         <h5 className="team-header">{teams.teamName} </h5></button>
                                 </p>
                                 <div className="create-qr-box" id={`qr-box-${index}`}>
-                                    <QRCode value={`https://151.177.147.211:3000/googlemap?gameid=${this.state.gameid}&teamid=${teams.id}`}/>
+                                    <QRCode size={130} value={`https://151.177.147.211:3000/googlemap?gameid=${this.state.gameid}&teamid=${teams.id}`}/>
+                                    <br/><br/>If you're not able scan the QR code, write this in the code field:<br/><br/><span style={{padding: "5px", color: "#000000", backgroundColor: "#FFFFFF"}}> {`googlemap?gameid=${this.state.gameid}&teamid=${teams.id}`} </span>
                                 </div>
                             </div>
                         ))}

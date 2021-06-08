@@ -7,6 +7,7 @@ import ManageTeamService from "../services/ManageTeamService";
 import CreateTeam from "./CreateTeam";
 import PlayersInTeam from "./PlayersInTeam";
 import http from "../http-common";
+import BackButton from "./BackButton";
 
 
 
@@ -61,7 +62,7 @@ export class ManageTeams extends Component {
         return (
             <>
                 <div className="container">
-                <div className="wrapper-main">
+                <div className="wrapper-main"><BackButton/>
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Manage Teams</h2><br/>
                     <p><button onClick={this.showCreateTeamWrapper} className="btn flashy-btn"><Icon.Plus /> Create Team</button></p>
                     <div className="create-team" id="create-team-wrapper">
@@ -72,10 +73,9 @@ export class ManageTeams extends Component {
                     <div className="team-list">
                         {teams && teams.map((teams, index) => (
                             <div key={index} >
-                                <a href="#!" className="team-box" onClick={(e)=>this.showTeamBox(index)}> <h3 className="team-header">{teams.teamName} <a href="#!" onClick={this.deleteTeam.bind(this, teams.id)}><Icon.DashCircleFill className="icon-dash" /></a></h3></a>
+                                <h3 className="team-header"><a href="#!" className="team-box" onClick={(e)=>this.showTeamBox(index)}>{teams.teamName}</a> <a href="#!" onClick={this.deleteTeam.bind(this, teams.id)}><Icon.DashCircleFill className="icon-dash" /></a></h3>
                                 <div className="team-player-box" id={`tp-box-${index}`}>
-                                    <PlayersInTeam
-                                        tId={teams.id}/>
+                                    <PlayersInTeam tId={teams.id}/>
                                     </div>
                             </div>
 

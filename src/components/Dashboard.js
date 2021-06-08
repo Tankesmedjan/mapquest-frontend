@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {isAuthenticated} from "../repositories/LoginAuth";
 import FooterContentWoLogo from "./FooterContentWoLogo";
+import BackButton from "./BackButton";
 
 export class Dashboard extends Component {
 
@@ -11,7 +12,7 @@ export class Dashboard extends Component {
         if (!isAuthenticated()) return null;
         return (
             <div className="container">
-                    <div className="wrapper-main">
+                    <div className="wrapper-main"><BackButton/>
                         <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Dashboard</h2><br/>
                         <p><Link to="/choosestory"><button className="btn flashy-btn"><Icon.Signpost2Fill /> Choose story</button></Link></p>
                         <p><Link to="/manageteams"><button className="btn flashy-btn"><Icon.Wrench /> Manage teams</button></Link></p>

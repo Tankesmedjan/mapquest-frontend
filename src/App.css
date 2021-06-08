@@ -623,6 +623,20 @@ color: #FFFFFF;
   margin-left: -50px;
   margin-top: -43px;
 }
+.back-button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #373a47;
+  font-size: 16px;
+  color: #fff!important;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.back-button:hover {
+  background-color: #888;
+  color: #61dafb!important;
+}
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;

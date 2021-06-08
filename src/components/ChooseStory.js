@@ -6,6 +6,7 @@ import {isAuthenticated} from "../repositories/LoginAuth";
 import FooterContent from "./FooterContent";
 import http from "../http-common";
 import {Redirect} from "react-router-dom";
+import BackButton from "./BackButton";
 
 
 export class ChooseStory extends Component {
@@ -60,7 +61,7 @@ export class ChooseStory extends Component {
             <>
                 {redirect ? (<Redirect push to="/gamearea"/>) : null}
                 <div className="container">
-                    <div className="wrapper-main">
+                    <div className="wrapper-main"><BackButton/>
                         <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Choose Story</h2>
                         <br/>
                         {game && game.map((gam, index) => (
