@@ -17,7 +17,9 @@ export class LandingPage extends Component {
                         <p><Link to="/purchaseaccess"><button className="btn flashy-btn"><Icon.CurrencyDollar /> Purchase Access</button></Link></p>
                         <p><Link to="/login"><button className="btn flashy-btn"><Icon.DoorOpen /> Login</button></Link></p>
                         <p><Link to="/qrscanner"><button className="btn flashy-btn"><Icon.Upc /> Scan QR</button></Link></p>
-                        <p><Link to="/googlemap"><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></Link></p>
+
+                        {/*<p><Link to="/googlemap"><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></Link></p>*/}
+
                     </div>
 
                     <FooterContent/>

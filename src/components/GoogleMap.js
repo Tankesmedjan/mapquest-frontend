@@ -13,7 +13,11 @@ const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src
 const NextPoint = ({ text }) => <div className="next-point"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
 const MeOnMap = ({direction}) => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" className={direction}/></div>
 const MissionBox = ({ text, missiontext, missionid}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/><div style={{display:"none"}}>{missionid}</div></div>
-let unDonePoints = []
+
+let search = window.location.search;
+let params = new URLSearchParams(search);
+let gameid = params.get('gameid');
+let teamid = params.get('teamid');
 
 class GoogleMap extends Component {
     constructor(props) {
@@ -25,8 +29,8 @@ class GoogleMap extends Component {
             },
             mapPointers: [],
             teamAndPlayers: {},
-            gameId: 1,
-            teamId: 1,
+            gameId: gameid,
+            teamId: teamid,
             missionId: 0,
             gameProgress: []
         }
@@ -34,6 +38,7 @@ class GoogleMap extends Component {
     static propTypes = {
         markers: PropTypes.any
     }
+
 
     showCurrentLocation = () => {
             navigator.geolocation.getCurrentPosition(
