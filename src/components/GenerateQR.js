@@ -54,7 +54,7 @@ export class GenerateQR extends Component {
                                         <h5 className="team-header">{teams.teamName} </h5></button>
                                 </p>
                                 <div className="create-qr-box" id={`qr-box-${index}`}>
-                                    <QRCode size={130} value={`https://151.177.147.211:3000/googlemap?gameid=${this.state.gameid}&teamid=${teams.id}`}/>
+                                    <QRCode size={120} value={`https://151.177.147.211:3000/googlemap?gameid=${this.state.gameid}&teamid=${teams.id}`}/>
                                     <br/><br/>If you're not able scan the QR code, write this in the code field:<br/><br/><span style={{padding: "5px", color: "#000000", backgroundColor: "#FFFFFF"}}> {`googlemap?gameid=${this.state.gameid}&teamid=${teams.id}`} </span>
                                 </div>
                             </div>
