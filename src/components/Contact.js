@@ -25,7 +25,6 @@ export class Contact extends Component {
         this.setState({[event.target.name]: event.target.value})
 
     render() {
-        const insertFooter = FooterContent
         return (
             <div className="container">
                 <div className="wrapper-main">
@@ -55,7 +54,7 @@ export class Contact extends Component {
                     </p></form>
                 </div>
 
-                {insertFooter}
+               <FooterContent/>
 
             </div>
         )

@@ -21,7 +21,6 @@ export class Login extends Component {
     }
 
     render() {
-        const insertFooter = FooterContent
         return (
             <div className="container">
                 <div className="wrapper-main">
@@ -41,7 +40,7 @@ export class Login extends Component {
                     </form>
                 </div>
 
-                {insertFooter}
+                <FooterContent/>
 
             </div>
         )

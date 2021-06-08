@@ -3,7 +3,6 @@ import * as Icon from "react-bootstrap-icons";
 import React, {Component} from "react";
 import FooterContent from "./FooterContent";
 import {isAuthenticated} from "../repositories/LoginAuth";
-import Teams from "./Teams";
 import ManageTeamService from "../services/ManageTeamService";
 import CreateTeam from "./CreateTeam";
 import PlayersInTeam from "./PlayersInTeam";
@@ -58,14 +57,12 @@ export class ManageTeams extends Component {
 
     render() {
         if (!isAuthenticated()) return null;
-        const insertFooter = FooterContent
         const {teams} = this.state
         return (
             <>
                 <div className="container">
                 <div className="wrapper-main">
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Manage Teams</h2><br/>
-                    <Teams/>
                     <p><button onClick={this.showCreateTeamWrapper} className="btn flashy-btn"><Icon.Plus /> Create Team</button></p>
                     <div className="create-team" id="create-team-wrapper">
                     <CreateTeam/>
@@ -87,7 +84,7 @@ export class ManageTeams extends Component {
 
                 </div>
 
-                    {insertFooter}
+               <FooterContent/>
 
                 </div>
             </>

@@ -38,7 +38,6 @@ export class GenerateQR extends Component {
     }
 
     render() {
-        const insertFooter = FooterContent
         const {teams} = this.state
         return (
             <div className="container">
@@ -59,7 +58,7 @@ export class GenerateQR extends Component {
                         ))}
                     </div>
                 </div>
-                {insertFooter}
+                <FooterContent />
             </div>
         )
     }

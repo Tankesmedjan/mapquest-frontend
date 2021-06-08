@@ -31,7 +31,6 @@ export class ScanQR extends Component {
             facingMode: "rear",
             chooseDeviceId: 1,
         }
-        const insertFooter = FooterContent
         return (
             <div className="container">
                 <div className="wrapper-main">
@@ -46,7 +45,7 @@ export class ScanQR extends Component {
 
                 </div>
 
-                {insertFooter}
+                <FooterContent/>
 
             </div>
         )

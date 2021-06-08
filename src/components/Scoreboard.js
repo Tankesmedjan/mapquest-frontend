@@ -59,7 +59,6 @@ class Scoreboard extends Component {
     }
 
     render() {
-        const insertFooter = FooterContent
         const {gameStatus, gameMissions, gameTeams, gameProgress} = this.state
         let ii = 0
         return (
@@ -114,7 +113,7 @@ class Scoreboard extends Component {
                     </table>
 
                 </div>
-                {insertFooter}
+                <FooterContent/>
             </div>
         )
     }

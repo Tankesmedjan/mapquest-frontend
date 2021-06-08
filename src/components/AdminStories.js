@@ -65,7 +65,6 @@ export class AdminStories extends Component {
     render() {
 
         const {stories} = this.state
-        const insertFooter = FooterContent
         return (
             <>
                 <div className="container">
@@ -119,7 +118,7 @@ export class AdminStories extends Component {
                             }
                         </div>
                     </div>
-                    {insertFooter}
+                    <FooterContent/>
                 </div>
             </>
         )

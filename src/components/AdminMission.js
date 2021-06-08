@@ -65,7 +65,6 @@ export class AdminMission extends Component {
     render() {
 
         const {missions} = this.state
-        const insertFooter = FooterContent
         return (
             <>
                 <div className="container">
@@ -104,7 +103,7 @@ export class AdminMission extends Component {
                             }
                         </div>
                     </div>
-                    {insertFooter}
+                    <FooterContent/>
                 </div>
             </>
         )

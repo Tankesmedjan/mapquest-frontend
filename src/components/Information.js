@@ -4,7 +4,6 @@ import FooterContent from "./FooterContent";
 
 export class Information extends Component {
     render() {
-        const insertFooter = FooterContent
         return (
             <div className="container">
                 <div className="wrapper-main">
@@ -36,7 +35,7 @@ export class Information extends Component {
                     <br/>
                 </div>
 
-                {insertFooter}
+               <FooterContent/>
 
             </div>
         )

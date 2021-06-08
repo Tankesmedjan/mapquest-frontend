@@ -25,7 +25,6 @@ export class PurchaseAccess extends Component {
     }
 
     render() {
-        const insertFooter = FooterContent
         return (
             <div className="container">
                 <div className="wrapper-main">
@@ -56,7 +55,7 @@ export class PurchaseAccess extends Component {
                     </form>
                 </div>
 
-                {insertFooter}
+              <FooterContent/>
 
             </div>
         )

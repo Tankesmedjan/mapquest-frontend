@@ -6,7 +6,6 @@ import FooterContent from "./FooterContent";
 
 export class LandingPage extends Component {
     render() {
-        const insertFooter = FooterContent
         return (
                 <div className="container">
                     <div className="wrapper-main">
@@ -21,7 +20,7 @@ export class LandingPage extends Component {
                         <p><Link to="/googlemap"><button className="btn flashy-btn"><Icon.BoxArrowInRight /> Quick access</button></Link></p>
                     </div>
 
-                    {insertFooter}
+                    <FooterContent/>
 
                 </div>
 

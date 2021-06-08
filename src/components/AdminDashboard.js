@@ -9,7 +9,6 @@ export class AdminDashboard extends Component {
 
     render() {
         if (isAdminAuth()) return null;
-        const insertFooter = FooterContent
         return (
             <div className="container">
                     <div className="wrapper-main">
@@ -20,7 +19,7 @@ export class AdminDashboard extends Component {
                         <p><Link to="/"><button className="btn flashy-btn"><Icon.ListOl /> Log out</button></Link></p>
                     </div>
 
-                {insertFooter}
+                <FooterContent />
             </div>
 
         )

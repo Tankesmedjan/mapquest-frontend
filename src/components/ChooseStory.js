@@ -56,7 +56,6 @@ export class ChooseStory extends Component {
     render() {
         isAuthenticated()
         const {stories, redirect, game} = this.state
-        const insertFooter = FooterContent
         return (
             <>
                 {redirect ? (<Redirect push to="/gamearea"/>) : null}
@@ -89,7 +88,7 @@ export class ChooseStory extends Component {
                         ) : null
                         }
                     </div>
-                    {insertFooter}
+                    <FooterContent/>
                 </div>
             </>
         )
