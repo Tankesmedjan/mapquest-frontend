@@ -58,7 +58,7 @@ button {
   color: white!important;
 }
 button:hover {
-
+  color: #61dafb!important;
 }
 .container {
   background-color: #282c34;
@@ -335,6 +335,13 @@ div .next-point {
   display: none;
   margin-bottom: 20px;
   animation: ease-in-out 2s;
+}
+.create-admin {
+  height: auto;
+  display: none;
+  margin-bottom: 20px;
+  animation: ease-in-out 2s;
+  text-align: left;
 }
 .create-story {
   height: auto;

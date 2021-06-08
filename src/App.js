@@ -23,6 +23,7 @@ import About from "./components/About";
 import Information from "./components/Information";
 import PlacePins from "./components/PlacePins";
 import GenerateQR from "./components/GenerateQR";
+import AdminAddUser from "./components/AdminAddUser";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route exact path="/information" component={Information} />
             <Route exact path="/qrcode" component={GenerateQR} />
+            <Route exact path="/admin/expand" component={AdminAddUser} />
 
         </Switch>
         </BrowserRouter>
