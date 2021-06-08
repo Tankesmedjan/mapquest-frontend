@@ -18,7 +18,7 @@ export class Dashboard extends Component {
                         <p><Link to="/manageteams"><button className="btn flashy-btn"><Icon.Wrench /> Manage teams</button></Link></p>
                         <p><Link to="/gamearea"><button className="btn flashy-btn"><Icon.Map /> Choose game area</button></Link></p>
                         <p><Link to="/missionpins"><button className="btn flashy-btn"><Icon.PinMap /> Place mission pins on map</button></Link></p>
-                        <p><Link to="/qrcode"><button className="btn flashy-btn"><Icon.ListOl /> Generate QR code</button></Link></p>
+                        <p><Link to="/qrcode"><button className="btn flashy-btn"><Icon.UpcScan /> Generate QR code</button></Link></p>
                         <p><Link to="/scoreboard"><button className="btn flashy-btn"><Icon.ListOl /> Scoreboard</button></Link></p>
                     </div>
 
