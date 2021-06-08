@@ -19,10 +19,10 @@ import build from './metadata.json';
 import Contact from "./components/Contact";
 import AdminStories from "./components/AdminStories";
 import AdminMission from "./components/AdminMission";
-import {About} from "./components/About";
-import {Information} from "./components/Information";
+import About from "./components/About";
+import Information from "./components/Information";
 import PlacePins from "./components/PlacePins";
-import {GenerateQR} from "./components/GenerateQR";
+import GenerateQR from "./components/GenerateQR";
 
 function App() {
   return (

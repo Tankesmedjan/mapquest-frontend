@@ -3,13 +3,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import {Link} from "react-router-dom";
 import {isAuthenticated} from "../repositories/LoginAuth";
-import FooterContent from "./FooterContent";
+import FooterContentWoLogo from "./FooterContentWoLogo";
 
 export class Dashboard extends Component {
 
     render() {
         if (!isAuthenticated()) return null;
-        const insertFooter = FooterContent
         return (
             <div className="container">
                     <div className="wrapper-main">
@@ -22,7 +21,7 @@ export class Dashboard extends Component {
                         <p><Link to="/scoreboard"><button className="btn flashy-btn"><Icon.ListOl /> Scoreboard</button></Link></p>
                     </div>
 
-                {insertFooter}
+                <FooterContentWoLogo />
             </div>
 
         )

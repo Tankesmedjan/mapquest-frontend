@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import FooterContent from "./FooterContent";
 import ManageTeamService from "../services/ManageTeamService";
+import QRCode from "react-qr-code";
 
 
 export class GenerateQR extends Component {
@@ -38,7 +39,6 @@ export class GenerateQR extends Component {
 
     render() {
         const insertFooter = FooterContent
-        const QRCode = require('qrcode.react')
         const {teams} = this.state
         return (
             <div className="container">
@@ -64,3 +64,4 @@ export class GenerateQR extends Component {
         )
     }
 }
+export default GenerateQR

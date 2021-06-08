@@ -42,3 +42,4 @@ export class Information extends Component {
         )
     }
 }
+export default Information
