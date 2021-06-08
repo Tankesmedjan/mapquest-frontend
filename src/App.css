@@ -595,9 +595,9 @@ color: #FFFFFF;
   height: 1px;
   width: 1px;
   border: 1px solid black;
-  margin-left: -75px;
-  margin-top: -100px;
-  padding-top: 90px;
+  margin-left: -50px;
+  margin-top: -65px;
+  padding-top: 45px;
   z-index: 0;
   left: 10px;
   filter: alpha(opacity=30);
@@ -605,11 +605,11 @@ color: #FFFFFF;
 }
 .confirm-area-selection {
   top: 100px;
-  left: calc(50% - 170px);
+  left: calc(50% - 150px);
   background: rgba(0,0,0, 0.6);
   border-radius: 10px;
   padding: 10px;
-  width: 340px;
+  width: 300px;
   position: absolute;
   display: none;
   text-align: center;
@@ -617,6 +617,11 @@ color: #FFFFFF;
   font-weight: bold;
   color: #fff;
   z-index: 1001;
+}
+.place-pin-holder {
+  width: 100px;
+  margin-left: -50px;
+  margin-top: -43px;
 }
 /* Position and sizing of burger button */
 .bm-burger-button {

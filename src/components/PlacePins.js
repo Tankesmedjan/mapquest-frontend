@@ -1,31 +1,31 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import {isAuthenticated} from "../repositories/LoginAuth";
-import http from "../http-common";
 import GoogleMapReact from "google-map-react";
 import StoryService from "../services/StoryService";
 
 
-const Point = () => <div className="draw-google-rectangle" id="chosen-area" style={{backgroundImage: "url('images/stripe_bg.png')"}}><img src="mission_done_pointer.png" alt="pointer" width="30"/> </div>
-let GameId = 0;
-let mapData = "";
-export class GameArea extends Component {
+const Point = ({mission}) => <div className="place-pin-holder">{mission}<br/><img src="pointer.gif" alt="pointer" width="30"/></div>
 
+export class PlacePins extends Component {
     constructor(props) {
         super(props)
         this.state = {
             game: [],
             chosenLat: 10.00,
-            chosenLng: 10.00
+            chosenLng: 10.00,
+            startLat: 10.00,
+            startLng: 10.00
         }
     }
 
     loadGameForUser() {
         StoryService.getGameByUserId(sessionStorage.getItem('userid'))
             .then(response => {
-                GameId = response.data.id
                 this.setState({
-                    game: response.data
+                    game: response.data,
+                    startLat: response.data[0].lat,
+                    startLng: response.data[0].lng
                 })
             })
     }
@@ -38,14 +38,14 @@ export class GameArea extends Component {
         if (document.getElementById('chosen-area')) {
             document.getElementById('chosen-area').style.display = 'block';
             document.getElementById('chosen-area').style.zIndex = '1000';
-            document.getElementById('chosen-area').style.width = '100px';
-            document.getElementById('chosen-area').style.height = '130px';
+            document.getElementById('chosen-area').style.width = '150px';
+            document.getElementById('chosen-area').style.height = '200px';
         }
         if (document.getElementById('confirmation')) {
             document.getElementById('confirmation').style.display = 'block';
         }
         let data = {lat: event.lat, lng: event.lng}
-        http.put(`/game/edit?id=${this.state.game[0].id}`, data);
+        //http.put(`/game/edit?id=${this.state.game[0].id}`, data);
     }
 
     confirmGameArea() {
@@ -57,20 +57,21 @@ export class GameArea extends Component {
     }
 
     render() {
+        if (!isAuthenticated()) return null;
         let {chosenLat, chosenLng} = this.state
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
                     <div className="confirm-area-selection" id="confirmation">
-                        <p>Are you happy with the selected game area?</p>
+                        <p>Are you happy with the selected mission's pin placement?</p>
                         <p><a href="#!" onClick={this.confirmGameArea} className="btn flashy-btn"> Yes </a></p>
                     </div>
                     <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
                         <GoogleMapReact
                             onClick={this.chooseGameArea.bind(MouseEvent)}
                             bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_API_KEY}}
-                            defaultCenter={this.props.center}
-                            defaultZoom={this.props.zoom}
+                            center={{lat: this.state.startLat, lng: this.state.startLng}}
+                            defaultZoom={18.5}
                             yesIWantToUseGoogleMapApiInternals
                             options={{
                                 scrollwheel: false,
@@ -80,7 +81,7 @@ export class GameArea extends Component {
                                 styles: [{stylers: [{'saturation': 80}, {'gamma': 0.8}]}]
                             }}
                         >
-                            <Point lat={chosenLat} lng={chosenLng}/>
+                            <Point lat={chosenLat} lng={chosenLng} mission="Mission 1"/>
 
                         </GoogleMapReact>
                 </div>
@@ -88,10 +89,4 @@ export class GameArea extends Component {
         )
     }
 }
-// -- Hard coded values to be replaced with dynamic from API --
-GameArea.defaultProps = {
-    center: {lat: 57.7273132, lng: 12.0443108},
-    zoom: 16.7
-}
-// -- End --
-export default GameArea
+export default PlacePins

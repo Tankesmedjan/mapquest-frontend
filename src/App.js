@@ -19,9 +19,9 @@ import build from './metadata.json';
 import Contact from "./components/Contact";
 import AdminStories from "./components/AdminStories";
 import AdminMission from "./components/AdminMission";
-
 import {About} from "./components/About";
 import {Information} from "./components/Information";
+import PlacePins from "./components/PlacePins";
 import {GenerateQR} from "./components/GenerateQR";
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
             <Route exact path="/createteam" component={CreateTeam} />
             <Route exact path="/scoreboard" component={Scoreboard} />
             <Route exact path="/gamearea" component={GameArea} />
+            <Route exact path="/missionpins" component={PlacePins} />
             <Route exact path="/admin" component={AdminLogin} />
             <Route exact path="/admin/dashboard" component={AdminDashboard} />
             <Route exact path="/admin/stories" component={AdminStories} />
