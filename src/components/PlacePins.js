@@ -20,7 +20,7 @@ export class PlacePins extends Component {
             startLat: 10.00,
             startLng: 10.00,
             allMissionPins: [],
-            gameid: 1
+            gameid: sessionStorage.getItem('gameid')
         }
     }
 

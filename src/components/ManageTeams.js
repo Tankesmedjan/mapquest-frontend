@@ -15,7 +15,7 @@ export class ManageTeams extends Component {
         this.state = {
             teams: [],
             players: [],
-            gameid: 1
+            gameid: sessionStorage.getItem('gameid')
         }
     }
 

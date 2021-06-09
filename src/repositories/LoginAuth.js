@@ -1,6 +1,24 @@
 import http from "../http-common";
 import sha256 from "sha256";
+import StoryService from "../services/StoryService";
 
+export function getGameSession() {
+    StoryService.getGameByUserId(sessionStorage.getItem('userid'))
+        .then(response => {
+            if(response.data[0] !== undefined) {
+                sessionStorage.setItem('gameid', response.data[0].id)
+            }
+
+        })
+    if (!sessionStorage.getItem('gameid')) {
+        let data = {lat: 0, lng: 0, userId: sessionStorage.getItem('userid')}
+        http.post(`/game?id=${sessionStorage.getItem('userid')}`, data);
+        StoryService.getGameByUserId(sessionStorage.getItem('userid'))
+            .then(response => {
+                sessionStorage.setItem('gameid', response.data[0].id);
+            })
+            }
+}
 export function login (data) {
     let msg = '';
     http.post('/user/login',
@@ -39,6 +57,7 @@ export function isAuthenticated(){
         sessionStorage.clear();
         window.location = '/login'
     } else {
+        getGameSession()
         sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
         return sessionStorage.getItem('x-access-token') && sessionStorage.getItem('x-access-token-expiration') > Date.now()
     }

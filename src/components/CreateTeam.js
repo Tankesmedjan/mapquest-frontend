@@ -8,7 +8,7 @@ export class CreateTeam extends Component {
 
     constructor() {
         super();
-        this.state = {teamName: '', gameId: ''};
+        this.state = {teamName: '', gameId: sessionStorage.getItem('gameid')};
     }
 
     handleInputChange = (event) =>
@@ -20,7 +20,7 @@ export class CreateTeam extends Component {
         if (!this.state.name || this.state.name.length <=3){
             alert("Team Name must contain at least 4 letters")
         } else {
-            let data = {teamName: this.state.name, gameId: 1}
+            let data = {teamName: this.state.name, gameId: this.state.gameid}
             http.post(`/team`, data)
             alert("Successfully registered!")
         }

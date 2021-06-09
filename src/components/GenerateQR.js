@@ -12,7 +12,7 @@ export class GenerateQR extends Component {
         super();
         this.state = {
             teams: [],
-            gameid: 1
+            gameid: sessionStorage.getItem('gameid')
         }
     }
 
