@@ -3,8 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import {login} from "../repositories/LoginAuth";
 import FooterContent from "./FooterContent";
 
-
-
 export class Login extends Component {
     constructor() {
         super();

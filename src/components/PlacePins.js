@@ -6,7 +6,6 @@ import StoryService from "../services/StoryService";
 import MapPointers from "../services/MapPointers";
 import https from "../http-common";
 
-
 const Point = ({mission}) => <div className="place-pin-holder">{mission}<br/><img src="pointer.gif" alt="pointer" width="30"/></div>
 let counter = 0;
 let pinProgress = [];
@@ -109,9 +108,6 @@ export class PlacePins extends Component {
                             pinProgress[0] !== undefined && pinProgress[1] !== undefined ? (
                         <Point key={pinProgress[counter].id} lat={chosenLat} lng={chosenLng} mission={pinProgress[counter].name} />
                             ) : null}
-
-
-
                         </GoogleMapReact>
                 </div>
             </>

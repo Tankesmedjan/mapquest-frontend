@@ -5,7 +5,6 @@ import http from "../http-common";
 import GoogleMapReact from "google-map-react";
 import StoryService from "../services/StoryService";
 
-
 const Point = () => <div className="draw-google-rectangle" id="chosen-area" style={{backgroundImage: "url('images/stripe_bg.png')"}}><img src="mission_done_pointer.png" alt="pointer" width="30"/> </div>
 let GameId = 0;
 let mapData = "";
@@ -57,6 +56,7 @@ export class GameArea extends Component {
     }
 
     render() {
+        if (!isAuthenticated()) return null;
         let {chosenLat, chosenLng} = this.state
         return (
             <>

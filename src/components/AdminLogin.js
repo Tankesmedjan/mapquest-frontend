@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
-import {adminLogin, isAdminAuth} from "../repositories/LoginAuth";
+import {adminLogin} from "../repositories/LoginAuth";
 
 class AdminLogin extends Component {
     constructor() {

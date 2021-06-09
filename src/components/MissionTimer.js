@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import * as Icon from "react-bootstrap-icons";
 import GameProgress from "../services/GameProgress";
-import GoogleMap from "./GoogleMap";
 
 class MissionTimer extends Component {
     constructor(props) {

@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import http from "../http-common";
 
-
 export class CreateStory extends Component {
 
     constructor() {
@@ -26,12 +25,9 @@ export class CreateStory extends Component {
         }
     }
 
-
     render() {
-
         return (
             <>
-
                 <form onSubmit={(e) => this.addStory(e)}>
                     {}
                     <input type="text" placeholder="Enter Story Name" className="input-text" name="storyName" onChange={this.handleInputChange}/>

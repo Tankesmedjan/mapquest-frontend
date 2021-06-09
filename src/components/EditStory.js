@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import http from "../http-common";
-
+import {isAuthenticated} from "../repositories/LoginAuth";
 
 export class EditStory extends Component {
 
@@ -23,12 +23,10 @@ export class EditStory extends Component {
 
     }
 
-
-
     render() {
+        if (!isAuthenticated()) return null;
         return (
             <>
-
                 <form onSubmit={(e) => this.editStory(e)}>
                     {}
                     <input type="text" placeholder="Enter Story Name" className="input-text" name="storyName" onChange={this.handleInputChange}/>

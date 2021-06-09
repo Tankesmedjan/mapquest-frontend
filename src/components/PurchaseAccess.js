@@ -5,7 +5,6 @@ import http from "../http-common";
 import sha256 from "sha256";
 import FooterContent from "./FooterContent";
 
-
 export class PurchaseAccess extends Component {
     constructor() {
         super();
@@ -54,9 +53,7 @@ export class PurchaseAccess extends Component {
                         </p>
                     </form>
                 </div>
-
               <FooterContent/>
-
             </div>
         )
     }

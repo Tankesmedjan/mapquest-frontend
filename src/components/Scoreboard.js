@@ -5,13 +5,11 @@ import GameProgress from "../services/GameProgress";
 import MapPointers from "../services/MapPointers";
 import ManageTeamService from "../services/ManageTeamService";
 
-
 let progressArray = [];
 let scoreArray = [];
 let winner = 0;
 
 class Scoreboard extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -105,13 +103,10 @@ class Scoreboard extends Component {
 
                                     ))
                                 }
-
                                     <tr><td> </td><td className="scoreboard-scores-even">{scoreArray[ii]}</td><td className="scoreboard-scores-even">{scoreArray[(ii+1)]}</td><td> </td></tr>
                                     <tr><td> </td><td className="scoreboard-scores-even">{scoreArray[ii+2]}</td><td className="scoreboard-scores-even">{scoreArray[(ii+3)]}</td><td> </td></tr>
-
                         </tbody>
                     </table>
-
                 </div>
                 <FooterContent/>
             </div>

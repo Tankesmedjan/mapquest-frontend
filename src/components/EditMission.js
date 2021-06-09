@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import * as Icon from "react-bootstrap-icons";
 import http from "../http-common";
-
+import {isAuthenticated} from "../repositories/LoginAuth";
 
 export class EditMission extends Component {
 
@@ -44,6 +44,7 @@ export class EditMission extends Component {
     }
 
     render() {
+        if (!isAuthenticated()) return null;
         return (
             <>
                 <form onSubmit={(e) => this.editMission(e)}>

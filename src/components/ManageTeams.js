@@ -9,8 +9,6 @@ import PlayersInTeam from "./PlayersInTeam";
 import http from "../http-common";
 import BackButton from "./BackButton";
 
-
-
 export class ManageTeams extends Component {
     constructor(props) {
         super(props)
@@ -81,11 +79,8 @@ export class ManageTeams extends Component {
 
                             ))}
                     </div>
-
                 </div>
-
-               <FooterContent/>
-
+                <FooterContent/>
                 </div>
             </>
         )

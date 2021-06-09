@@ -26,7 +26,6 @@ export class CreateTeam extends Component {
         }
     }
 
-
     render() {
         if (!isAuthenticated()) return null;
         return (

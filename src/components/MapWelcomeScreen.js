@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import https from '../http-common';
 import ManageTeamService from "../services/ManageTeamService";
 
 class MapWelcomeScreen extends Component {
@@ -32,10 +31,8 @@ class MapWelcomeScreen extends Component {
     componentDidMount() {
         this.getTeamAndMission()
     }
-
-
     render() {
-         const {storyname, teamname, storytext} = this.state;
+        const {storyname, teamname, storytext} = this.state;
         return (
             <div className="welcome-screen-wrapper" id="welcomescreen">
                 <div className="welcome-screen">

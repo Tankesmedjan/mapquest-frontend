@@ -4,6 +4,7 @@ import ManageTeamService from "../services/ManageTeamService";
 import QRCode from "react-qr-code";
 import * as Icon from "react-bootstrap-icons";
 import BackButton from "./BackButton";
+import {isAuthenticated} from "../repositories/LoginAuth";
 
 
 export class GenerateQR extends Component {
@@ -40,6 +41,7 @@ export class GenerateQR extends Component {
     }
 
     render() {
+        if (!isAuthenticated()) return null;
         const {teams} = this.state
         return (
             <div className="container">

@@ -1,11 +1,7 @@
 import React, {Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import * as Icon from "react-bootstrap-icons";
 import QrReader from 'react-qr-scanner';
 import FooterContent from "./FooterContent";
-
-
-let qrcodee = ""
 
 export class ScanQR extends Component {
     constructor(props){
@@ -28,14 +24,6 @@ export class ScanQR extends Component {
         console.error(err)
     }
 
-    handleInputChange = (event) => {
-        qrcodee = event.target.value
-    }
-
-    submitCode() {
-        window.location = 'https://localhost:3000/' + qrcodee
-    }
-
     render() {
         const qrStyle = {
             height: 280,
@@ -53,8 +41,6 @@ export class ScanQR extends Component {
                         onError={this.handleError}
                         onScan={this.handleScan}
                     />
-                    <input type="text" placeholder="Enter QR code here:" onChange={(event) => this.handleInputChange} name="QRcode" style={{padding: '5px', width: '200px' }} /><button className="btn" onClick={this.submitCode} type="submit"><Icon.BoxArrowInRight /></button>
-
                 </div>
 
                 <FooterContent/>
