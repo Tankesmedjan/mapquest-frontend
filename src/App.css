@@ -391,14 +391,14 @@ div .next-point {
 .mission-box {
   display: none;
   position: absolute;
-  top: 6%;
-  left: 6%;
+  top: 1%;
+  left: 5%;
   font-size: 16px;
   z-index: 100;
   border-radius: 15px;
   padding: 15px;
-  width: 88%;
-  height: 88%;
+  width: 90%;
+  height: 98%;
   background: rgba(220, 220, 220, 0.95);
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
@@ -466,6 +466,10 @@ div .next-point {
 .mission-started-wrapper {
   width: 100%;
 
+}
+.question-wrapper {
+  position: absolute;
+  top:200px;
 }
 .finished-mission {
   font-size: 12px;

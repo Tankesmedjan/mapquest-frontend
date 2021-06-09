@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import * as Icon from "react-bootstrap-icons";
 import GameProgress from "../services/GameProgress";
+import GoogleMap from "./GoogleMap";
 
 class MissionTimer extends Component {
     constructor(props) {
         super(props);
-            this.state = {missionTimer: 0, isRunning: true, gameId: this.props.game, teamId: this.props.team, missionId: this.props.mission}
+            this.state = {providedAnswer:null, missionTimer: 0, isRunning: true, gameId: this.props.game, teamId: this.props.team, missionId: this.props.mission}
     }
 
     componentDidMount() {
@@ -35,9 +36,13 @@ class MissionTimer extends Component {
         document.getElementById("finished-wrapper").style.display = "block";
         document.getElementById('runningTimer').style.animation = "none 1s infinite";
     }
-
+    providedAnswer = (event) => {
+        this.setState({
+            providedAnswer: event
+        })
+    }
     returnToMap = () => {
-        let progressData = {'gameid': this.state.gameId, 'missionid': this.props.mission, 'teamid': this.state.teamId, 'missionTime': this.state.missionTimer, 'qanswer': null}
+        let progressData = {'gameid': this.state.gameId, 'missionid': this.props.mission, 'teamid': this.state.teamId, 'missionTime': this.state.missionTimer, 'qanswer': this.state.providedAnswer}
         GameProgress.saveGameProgress(progressData)
         this.setState({
             missionTimer: 0,
@@ -56,6 +61,10 @@ class MissionTimer extends Component {
         for(let i = 0; i < elems.length; i++) {
             elems[i].style.display = 'block';
         }
+        elems = document.getElementsByClassName('question-wrapper')
+        for(let i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }
     }
 
     render() {
@@ -67,7 +76,14 @@ class MissionTimer extends Component {
                 <div className="mission-timer">
                     <img src={imgUrl} width="30" alt="timer" id="runningTimer" className="runningTimer" /><br/>{missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})} s.
                 </div>
-                <br/><p><a href="#!" onClick={() => this.setState({isRunning: false})} className="start-mission-btn"> <Icon.StopwatchFill /> F I N I S H ! </a></p>
+                <br/>
+                {this.props.question === true ? (
+                    <p><a href="#!" onClick={(event) => {this.providedAnswer("1"); this.setState({isRunning: false})}} className="start-mission-btn" > 1. {this.props.answer1} </a>&nbsp;
+                        <a href="#!" onClick={(event) => {this.providedAnswer("x"); this.setState({isRunning: false})}} className="start-mission-btn" > X. {this.props.answerX} </a>&nbsp;
+                        <a href="#!" onClick={(event) => {this.providedAnswer("2"); this.setState({isRunning: false})}} className="start-mission-btn" > 2. {this.props.answer2} </a></p>
+                ) : (
+                    <p><a href="#!" onClick={() => this.setState({isRunning: false})} className="start-mission-btn"> <Icon.StopwatchFill /> F I N I S H ! </a></p>
+                )}
                 <div id="finished-wrapper" className="finished-mission" style={{display: "none"}}>
                     <br/><h5>Good Job!</h5><b>Your team finished this mission in just {missionTimer.toLocaleString(navigator.language, {minimumFractionDigits: 2})} seconds.</b>
                     <br/><br/>

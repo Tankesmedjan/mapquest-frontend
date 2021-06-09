@@ -12,7 +12,7 @@ const DonePoint = ({ text }) => <div className="pintext"><span>{text}</span><img
 const Point = ({ text }) => <div className="pintext"><span>{text}</span><img src="pointer.gif" alt="pointer" width="30" /></div>
 const NextPoint = ({ text }) => <div className="next-point"><span>{text}</span><img src="here.gif" alt="next mission" width="30" /><img src="pointer-inverted.gif" alt="pointer" className="absolute-image" width="30" /></div>
 const MeOnMap = ({direction}) => <div className="me-on-map"><img src="walking.gif" alt="me" width="30" className={direction}/></div>
-const MissionBox = ({ text, missiontext, missionid}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/><div style={{display:"none"}}>{missionid}</div></div>
+const MissionBox = ({ text, missiontext, question, missionid}) => <div><br/><h3>{text}</h3><hr/>{missiontext}<br/><br/><hr/><br/><br/><div className="question-wrapper" id={`question-wrapper-${missionid}`} style={{display:"none"}}>{question}</div></div>
 
 let search = window.location.search;
 let params = new URLSearchParams(search);
@@ -32,7 +32,12 @@ class GoogleMap extends Component {
             gameId: gameid,
             teamId: teamid,
             missionId: 0,
-            gameProgress: []
+            gameProgress: [],
+            izQuestion: false,
+            answer1: "",
+            answerX: "",
+            answer2: "",
+            correctAnswer: ""
         }
     }
     static propTypes = {
@@ -53,7 +58,13 @@ class GoogleMap extends Component {
                 }
             )
     }
-    showMissionTimer = (event) => {
+    isQuestionFunction = (event) => {
+        alert(event)
+        this.setState({
+            izQuestion: event
+        })
+    }
+    showMissionTimer = (event, event2, event3, event4, event5, event6) => {
         if (document.getElementById("mission-timer")) {
                 document.getElementById("mission-timer").style.display = "block";
                 document.getElementById("start-mission-btn-box").style.display = "none";
@@ -64,6 +75,14 @@ class GoogleMap extends Component {
         this.setState({
             missionId: event
         })
+        this.setState({
+                izQuestion: event2,
+                answer1: event3,
+                answerX: event4,
+                answer2: event5,
+                correctAnswer: event6
+        })
+            document.getElementById(`question-wrapper-${event}`).style.display = "block";
         }
     }
 
@@ -127,10 +146,11 @@ class GoogleMap extends Component {
     }
 
     render() {
-        const {mapPointers, gameProgress, timer, gameId, teamId, missionId} = this.state;
+        const {mapPointers, gameProgress, timer, gameId, teamId, missionId, izQuestion, answer1, answerX, answer2, correctAnswer} = this.state;
         const {lats, lngs} = this.state.currentLatLng;
         let doneMissions = []
         let doneMissionPoints = []
+        let question = ""
         return (
             <>
                 <h1 className="maps-header">MapQuest</h1>
@@ -145,17 +165,22 @@ class GoogleMap extends Component {
                     }
 
                     {mapPointers && mapPointers.map((pointer, index) => (
+                        pointer.missionId.izQuestion === true ? (question = pointer.missionId.missionQAs.question) : (question=""),
+
                             <div key={index} className="mission-box" id={`mission-box-${pointer.missionId.id}`}>
                                 <MissionBox
                                     text={pointer.missionId.missionName}
                                     missiontext={pointer.missionId.missionDescription}
                                     missionid={pointer.missionId.id}
+                                    question={question}
                                 />
                                 <div className="mission-buttons" id="start-mission-btn-box">
                                     <p><a href="#!" onClick={this.hideMissionBoxes} className="start-mission-btn"> <Icon.Geo /> Back to Map </a></p>
-                                    {doneMissions.includes(pointer.missionId.id) ? (<><br/><h6>This mission is already completed</h6>Your team finished the mission in: {doneMissionPoints[pointer.missionId.id]}s. Good Job!<br/>Please move on to the next one!</>) : (
+                                    {doneMissions.includes(pointer.missionId.id) ? (<><br/><h6>This mission is already completed</h6>Your team finished the mission in: {doneMissionPoints[pointer.missionId.id].toLocaleString(navigator.language, {minimumFractionDigits: 2})} s. Good Job!<br/>Please move on to the next one!</>) : (
                                     lats <= (pointer.lat + 0.00003) && lats >= (pointer.lat -0.00003) && lngs <= (pointer.lng + 0.00003) && lngs >= (pointer.lng - 0.00003) ? (
-                                            <p><a href="#!" onClick={(event) => this.showMissionTimer(pointer.missionId.id)} className="start-mission-btn"> <Icon.Stopwatch /> Start mission timer & Go! </a></p>
+                                        pointer.missionId.izQuestion === true ? (
+                                            <p><a href="#!" onClick={(event) => this.showMissionTimer(pointer.missionId.id, pointer.missionId.izQuestion, pointer.missionId.missionQAs.answer1, pointer.missionId.missionQAs.answerX, pointer.missionId.missionQAs.answer2, pointer.missionId.missionQAs.correctAnswer) } className="start-mission-btn"> <Icon.Stopwatch /> See question and Start timer! </a></p>
+                                        ) : ( <p><a href="#!" onClick={(event) => this.showMissionTimer(pointer.missionId.id, pointer.missionId.izQuestion) } className="start-mission-btn"> <Icon.Stopwatch /> Start mission timer & Go! </a></p>)
                                         ) : (
                                             <p>You need to get closer to this pin to start the mission!</p>
                                         )
@@ -165,7 +190,7 @@ class GoogleMap extends Component {
                             </div>
                     ))}
                     <div className="mission-wrapper" id="mission-timer" style={{display: "none", zIndex: 100000}}>
-                       <MissionTimer isTimerRunning={timer} game={gameId} team={teamId} mission={missionId} />
+                       <MissionTimer isTimerRunning={timer} game={gameId} team={teamId} mission={missionId} question={izQuestion} answer1={answer1} answerX={answerX} answer2={answer2} correctAnswer={correctAnswer}/>
                     </div>
                 </div>
                 <div style={{marginLeft: '-0px', height: '695px', width: '100%'}}>
