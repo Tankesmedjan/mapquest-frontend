@@ -15,7 +15,6 @@ export class Login extends Component {
     submitLogin = (event) => {
         event.preventDefault();
         login(this.state)
-        console.log(this.state)
     }
 
     render() {

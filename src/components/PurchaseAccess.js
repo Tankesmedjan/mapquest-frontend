@@ -20,7 +20,6 @@ export class PurchaseAccess extends Component {
         http.post(`/user`, data)
         alert("Successfully registered!")
         this.setState({successMessage: "Registered!"})
-        console.log(this.state.password)
     }
 
     render() {

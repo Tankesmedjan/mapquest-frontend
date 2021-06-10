@@ -11,7 +11,7 @@ export function getGameSession() {
 
         })
     if (sessionStorage.getItem('gameid') <= 0 ) {
-        let data = {lat: 0, lng: 0, userId: sessionStorage.getItem('userid')}
+        let data = {lat: 0, lng: 0, storyId: 0, userId: sessionStorage.getItem('userid')}
         http.post(`/game?id=${sessionStorage.getItem('userid')}`, data);
         StoryService.getGameByUserId(sessionStorage.getItem('userid'))
             .then(response => {
