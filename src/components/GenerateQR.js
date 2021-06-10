@@ -2,10 +2,7 @@ import React, {Component} from "react";
 import FooterContent from "./FooterContent";
 import ManageTeamService from "../services/ManageTeamService";
 import QRCode from "react-qr-code";
-import * as Icon from "react-bootstrap-icons";
-import BackButton from "./BackButton";
 import {isAuthenticated} from "../repositories/LoginAuth";
-
 
 export class GenerateQR extends Component {
     constructor() {
@@ -45,7 +42,7 @@ export class GenerateQR extends Component {
         const {teams} = this.state
         return (
             <div className="container">
-                <div className="wrapper-main"><BackButton/>
+                <div className="wrapper-main">
                     <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Generate QR</h2>
                     <p></p>
                     <div>
