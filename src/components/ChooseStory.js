@@ -57,6 +57,7 @@ export class ChooseStory extends Component {
     render() {
         isAuthenticated()
         const {stories, redirect, game} = this.state
+        let noStory = true;
         return (
             <>
                 {redirect ? (<Redirect push to="/gamearea"/>) : null}
@@ -65,10 +66,11 @@ export class ChooseStory extends Component {
                         <h2 className="maps-header" style={{color: '#61dafb', marginBottom: '-10px'}}>Choose Story</h2>
                         <br/>
                         {game && game.map((gam, index) => (
+                            gam.story.id !== 0 ? ( noStory = false,
                             <h5 key={index} className="maps-header">You have already chosen the
                                 story <br/>"{gam.story.storyName}" </h5>
-                        ))}
-                        {game.length <= 0 ? (
+                        ) :null ))}
+                        {game.length <= 0 || noStory === true ? (
                             <div className="story-wrapper">
                                 {stories && stories.map((stories, index) => (
                                         <div key={index} className="story-box">

@@ -5,12 +5,12 @@ import StoryService from "../services/StoryService";
 export function getGameSession() {
     StoryService.getGameByUserId(sessionStorage.getItem('userid'))
         .then(response => {
-            if(response.data[0] !== undefined) {
+            if(response.data) {
                 sessionStorage.setItem('gameid', response.data[0].id)
             }
 
         })
-    if (!sessionStorage.getItem('gameid')) {
+    if (sessionStorage.getItem('gameid') <= 0 ) {
         let data = {lat: 0, lng: 0, userId: sessionStorage.getItem('userid')}
         http.post(`/game?id=${sessionStorage.getItem('userid')}`, data);
         StoryService.getGameByUserId(sessionStorage.getItem('userid'))
