@@ -5,20 +5,24 @@ import StoryService from "../services/StoryService";
 export function getGameSession() {
     StoryService.getGameByUserId(sessionStorage.getItem('userid'))
         .then(response => {
-            if(response.data) {
+            if (response.data) {
                 sessionStorage.setItem('gameid', response.data[0].id)
+            } else {
+                addNewGameId()
             }
-
         })
-    if (sessionStorage.getItem('gameid') <= 0 ) {
+}
+
+export function addNewGameId() {
         let data = {lat: 0, lng: 0, storyId: 0, userId: sessionStorage.getItem('userid')}
         http.post(`/game?id=${sessionStorage.getItem('userid')}`, data);
         StoryService.getGameByUserId(sessionStorage.getItem('userid'))
             .then(response => {
                 sessionStorage.setItem('gameid', response.data[0].id);
             })
-            }
+
 }
+
 export function login (data) {
     let msg = '';
     http.post('/user/login',
@@ -29,6 +33,7 @@ export function login (data) {
                 sessionStorage.setItem('x-access-token-expiration', Date.now() + 20 * 60 * 1000)
                 sessionStorage.setItem('userid',  response.data)
                 window.location = '/dashboard'
+                getGameSession()
             } else {
                 msg += 'Incorrect email or password.'
                 alert(msg)
